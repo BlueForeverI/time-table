@@ -1,21 +1,33 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace TimeTable.Data.Models
 {
-    public partial class timetableContext : DbContext
+    public partial class TimetableContext : DbContext
     {
-        public timetableContext()
+        private static TimetableContext _instance;
+        public TimetableContext()
         {
         }
 
-        public timetableContext(DbContextOptions<timetableContext> options)
+        public TimetableContext(DbContextOptions<TimetableContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<Employees> Employees { get; set; }
+        public static TimetableContext Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new TimetableContext();
+                }
+
+                return _instance;
+            }
+        }
+
+        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Project> Project { get; set; }
         public virtual DbSet<ProjectHours> ProjectHours { get; set; }
         public virtual DbSet<ProjectMonths> ProjectMonths { get; set; }
@@ -30,7 +42,7 @@ namespace TimeTable.Data.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employees>(entity =>
+            modelBuilder.Entity<Employee>(entity =>
             {
                 entity.HasKey(e => e.EmployeeId);
 

@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TimeTable.Data\TimeTable.Data.csproj" />
+    <ProjectReference Include="..\TimeTable.Services\TimeTable.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace TimeTable.Data.Models
 {
@@ -12,7 +11,7 @@ namespace TimeTable.Data.Models
         public string ProjectTask { get; set; }
         public decimal ProjectHours1 { get; set; }
 
-        public virtual Employees Employee { get; set; }
+        public virtual Employee Employee { get; set; }
         public virtual Project Project { get; set; }
         public virtual ProjectMonths ProjectMonth { get; set; }
     }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace TimeTable.Data.Models
 {
-    public partial class Employees
+    public partial class Employee
     {
-        public Employees()
+        public Employee()
         {
             ProjectHours = new HashSet<ProjectHours>();
         }

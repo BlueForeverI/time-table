@@ -29,7 +29,6 @@ namespace TimeTable.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridEmployees = new System.Windows.Forms.DataGridView();
@@ -42,11 +41,18 @@ namespace TimeTable.UI
             this.clmHireData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.bindingSourceEmployees = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridProjects = new System.Windows.Forms.DataGridView();
+            this.clmProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmProjectname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmProjectStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmProjectEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmProjectDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmProjectStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEmployees)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridProjects)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -83,10 +89,11 @@ namespace TimeTable.UI
             this.clmPosition,
             this.clmHireData,
             this.clmHours});
-            this.dataGridEmployees.Location = new System.Drawing.Point(-4, 3);
+            this.dataGridEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridEmployees.Location = new System.Drawing.Point(3, 3);
             this.dataGridEmployees.Name = "dataGridEmployees";
             this.dataGridEmployees.RowHeadersWidth = 51;
-            this.dataGridEmployees.Size = new System.Drawing.Size(1143, 524);
+            this.dataGridEmployees.Size = new System.Drawing.Size(1143, 597);
             this.dataGridEmployees.TabIndex = 0;
             // 
             // clmEmployeeId
@@ -163,6 +170,7 @@ namespace TimeTable.UI
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dataGridProjects);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -170,6 +178,80 @@ namespace TimeTable.UI
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Проекти";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridProjects
+            // 
+            this.dataGridProjects.AllowUserToAddRows = false;
+            this.dataGridProjects.AllowUserToDeleteRows = false;
+            this.dataGridProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridProjects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmProjectId,
+            this.clmProjectname,
+            this.clmProjectStart,
+            this.clmProjectEnd,
+            this.clmProjectDescription,
+            this.clmProjectStatus});
+            this.dataGridProjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridProjects.Location = new System.Drawing.Point(3, 3);
+            this.dataGridProjects.Name = "dataGridProjects";
+            this.dataGridProjects.ReadOnly = true;
+            this.dataGridProjects.RowHeadersWidth = 51;
+            this.dataGridProjects.Size = new System.Drawing.Size(1143, 597);
+            this.dataGridProjects.TabIndex = 0;
+            // 
+            // clmProjectId
+            // 
+            this.clmProjectId.DataPropertyName = "ProjectId";
+            this.clmProjectId.HeaderText = "ID";
+            this.clmProjectId.MinimumWidth = 6;
+            this.clmProjectId.Name = "clmProjectId";
+            this.clmProjectId.ReadOnly = true;
+            this.clmProjectId.Width = 125;
+            // 
+            // clmProjectname
+            // 
+            this.clmProjectname.DataPropertyName = "ProjectName";
+            this.clmProjectname.HeaderText = "Име";
+            this.clmProjectname.MinimumWidth = 6;
+            this.clmProjectname.Name = "clmProjectname";
+            this.clmProjectname.ReadOnly = true;
+            this.clmProjectname.Width = 125;
+            // 
+            // clmProjectStart
+            // 
+            this.clmProjectStart.DataPropertyName = "ProjectBegin";
+            this.clmProjectStart.HeaderText = "Начало";
+            this.clmProjectStart.MinimumWidth = 6;
+            this.clmProjectStart.Name = "clmProjectStart";
+            this.clmProjectStart.ReadOnly = true;
+            this.clmProjectStart.Width = 125;
+            // 
+            // clmProjectEnd
+            // 
+            this.clmProjectEnd.DataPropertyName = "ProjectEnd";
+            this.clmProjectEnd.HeaderText = "Край";
+            this.clmProjectEnd.MinimumWidth = 6;
+            this.clmProjectEnd.Name = "clmProjectEnd";
+            this.clmProjectEnd.ReadOnly = true;
+            this.clmProjectEnd.Width = 125;
+            // 
+            // clmProjectDescription
+            // 
+            this.clmProjectDescription.DataPropertyName = "ProjectDescription";
+            this.clmProjectDescription.HeaderText = "Описание";
+            this.clmProjectDescription.MinimumWidth = 6;
+            this.clmProjectDescription.Name = "clmProjectDescription";
+            this.clmProjectDescription.ReadOnly = true;
+            this.clmProjectDescription.Width = 125;
+            // 
+            // clmProjectStatus
+            // 
+            this.clmProjectStatus.DataPropertyName = "ProjectStatus";
+            this.clmProjectStatus.HeaderText = "Статус";
+            this.clmProjectStatus.MinimumWidth = 6;
+            this.clmProjectStatus.Name = "clmProjectStatus";
+            this.clmProjectStatus.ReadOnly = true;
+            this.clmProjectStatus.Width = 125;
             // 
             // Main
             // 
@@ -182,7 +264,8 @@ namespace TimeTable.UI
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEmployees)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridProjects)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -193,7 +276,6 @@ namespace TimeTable.UI
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridEmployees;
-        private System.Windows.Forms.BindingSource bindingSourceEmployees;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEmployeeId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEgn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
@@ -202,5 +284,12 @@ namespace TimeTable.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmHireData;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmHours;
+        private System.Windows.Forms.DataGridView dataGridProjects;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectEnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStatus;
     }
 }

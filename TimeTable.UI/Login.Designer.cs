@@ -113,7 +113,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label lblErrorMessage;
     }
 }
 

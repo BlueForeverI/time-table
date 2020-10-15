@@ -21,8 +21,7 @@ namespace TimeTable
             }
             else
             {
-                lblErrorMessage.Text = "Грешно име или парола";
-                lblErrorMessage.Visible = true;
+                MessageBox.Show("Грешно потребителско име или парола", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

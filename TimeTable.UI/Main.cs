@@ -36,5 +36,13 @@ namespace TimeTable.UI
             var allProjects = _projectService.GetAll();
             dataGridProjects.DataSource = allProjects;
         }
+
+        private void btnAddEmployee_Click(object sender, EventArgs e)
+        {
+            if (new AddEmployee().ShowDialog() == DialogResult.OK)
+            {
+                dataGridEmployees.DataSource = _employeeService.GetAll();
+            }
+        }
     }
 }

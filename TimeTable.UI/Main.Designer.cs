@@ -48,6 +48,7 @@ namespace TimeTable.UI
             this.clmProjectEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddEmployee = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
@@ -67,6 +68,7 @@ namespace TimeTable.UI
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnAddEmployee);
             this.tabPage1.Controls.Add(this.dataGridEmployees);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
@@ -89,11 +91,10 @@ namespace TimeTable.UI
             this.clmPosition,
             this.clmHireData,
             this.clmHours});
-            this.dataGridEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridEmployees.Location = new System.Drawing.Point(3, 3);
             this.dataGridEmployees.Name = "dataGridEmployees";
             this.dataGridEmployees.RowHeadersWidth = 51;
-            this.dataGridEmployees.Size = new System.Drawing.Size(1143, 597);
+            this.dataGridEmployees.Size = new System.Drawing.Size(1143, 562);
             this.dataGridEmployees.TabIndex = 0;
             // 
             // clmEmployeeId
@@ -253,6 +254,16 @@ namespace TimeTable.UI
             this.clmProjectStatus.ReadOnly = true;
             this.clmProjectStatus.Width = 125;
             // 
+            // btnAddEmployee
+            // 
+            this.btnAddEmployee.Location = new System.Drawing.Point(1052, 571);
+            this.btnAddEmployee.Name = "btnAddEmployee";
+            this.btnAddEmployee.Size = new System.Drawing.Size(94, 29);
+            this.btnAddEmployee.TabIndex = 1;
+            this.btnAddEmployee.Text = "Добави";
+            this.btnAddEmployee.UseVisualStyleBackColor = true;
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -291,5 +302,6 @@ namespace TimeTable.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectEnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStatus;
+        private System.Windows.Forms.Button btnAddEmployee;
     }
 }

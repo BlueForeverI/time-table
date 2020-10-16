@@ -54,13 +54,14 @@ namespace TimeTable.Data.Models
 
                 entity.Property(e => e.EmployeeId)
                     .HasColumnName("EMPLOYEE_ID")
-                    .HasColumnType("numeric(18, 0)");
+                    .HasColumnType("numeric(18, 0)")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.EmployeeEgn)
                     .IsRequired()
                     .HasColumnName("EMPLOYEE_EGN")
                     .HasMaxLength(10)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.EmployeeHiredate)
                     .HasColumnName("EMPLOYEE_HIREDATE")
@@ -70,24 +71,24 @@ namespace TimeTable.Data.Models
                     .IsRequired()
                     .HasColumnName("EMPLOYEE_LASTNAME")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.EmployeeName)
                     .IsRequired()
                     .HasColumnName("EMPLOYEE_NAME")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.EmployeePosition)
                     .HasColumnName("EMPLOYEE_POSITION")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.EmployeeSurname)
                     .IsRequired()
                     .HasColumnName("EMPLOYEE_SURNAME")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
             });
 
             modelBuilder.Entity<Project>(entity =>
@@ -100,7 +101,8 @@ namespace TimeTable.Data.Models
 
                 entity.Property(e => e.ProjectId)
                     .HasColumnName("PROJECT_ID")
-                    .HasColumnType("numeric(18, 0)");
+                    .HasColumnType("numeric(18, 0)")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ProjectBegin)
                     .HasColumnName("PROJECT_BEGIN")
@@ -109,7 +111,7 @@ namespace TimeTable.Data.Models
                 entity.Property(e => e.ProjectDescription)
                     .HasColumnName("PROJECT_DESCRIPTION")
                     .HasMaxLength(400)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.ProjectEnd)
                     .HasColumnName("PROJECT_END")
@@ -123,13 +125,13 @@ namespace TimeTable.Data.Models
                     .IsRequired()
                     .HasColumnName("PROJECT_NAME")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.ProjectStatus)
                     .IsRequired()
                     .HasColumnName("PROJECT_STATUS")
                     .HasMaxLength(1)
-                    .IsUnicode(false)
+                    .IsUnicode(true)
                     .IsFixedLength();
             });
 
@@ -163,7 +165,7 @@ namespace TimeTable.Data.Models
                     .IsRequired()
                     .HasColumnName("PROJECT_TASK")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.HasOne(d => d.Employee)
                     .WithMany(p => p.ProjectHours)
@@ -210,7 +212,7 @@ namespace TimeTable.Data.Models
                     .IsRequired()
                     .HasColumnName("PROJECT_MONTH_STATUS")
                     .HasMaxLength(1)
-                    .IsUnicode(false)
+                    .IsUnicode(true)
                     .IsFixedLength()
                     .HasDefaultValueSql("('O')");
 

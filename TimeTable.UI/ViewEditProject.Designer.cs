@@ -44,8 +44,16 @@ namespace TimeTable.UI
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gridViewProjectMonths = new System.Windows.Forms.DataGridView();
+            this.clmPmMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPmYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPmStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPmFinish = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.npMaxHours)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewProjectMonths)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -193,11 +201,76 @@ namespace TimeTable.UI
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.gridViewProjectMonths);
+            this.groupBox2.Location = new System.Drawing.Point(516, 13);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(768, 390);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Отчетни месеци";
+            // 
+            // gridViewProjectMonths
+            // 
+            this.gridViewProjectMonths.AllowUserToAddRows = false;
+            this.gridViewProjectMonths.AllowUserToDeleteRows = false;
+            this.gridViewProjectMonths.AllowUserToResizeColumns = false;
+            this.gridViewProjectMonths.AllowUserToResizeRows = false;
+            this.gridViewProjectMonths.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridViewProjectMonths.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridViewProjectMonths.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmPmMonth,
+            this.clmPmYear,
+            this.clmPmStatus,
+            this.clmPmFinish});
+            this.gridViewProjectMonths.Location = new System.Drawing.Point(3, 23);
+            this.gridViewProjectMonths.Name = "gridViewProjectMonths";
+            this.gridViewProjectMonths.RowHeadersWidth = 51;
+            this.gridViewProjectMonths.RowTemplate.Height = 29;
+            this.gridViewProjectMonths.Size = new System.Drawing.Size(759, 361);
+            this.gridViewProjectMonths.TabIndex = 0;
+            this.gridViewProjectMonths.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewProjectMonths_CellContentClick);
+            // 
+            // clmPmMonth
+            // 
+            this.clmPmMonth.DataPropertyName = "ProjectMonth";
+            this.clmPmMonth.HeaderText = "Месец";
+            this.clmPmMonth.MinimumWidth = 6;
+            this.clmPmMonth.Name = "clmPmMonth";
+            this.clmPmMonth.ReadOnly = true;
+            // 
+            // clmPmYear
+            // 
+            this.clmPmYear.DataPropertyName = "ProjectYear";
+            this.clmPmYear.HeaderText = "Година";
+            this.clmPmYear.MinimumWidth = 6;
+            this.clmPmYear.Name = "clmPmYear";
+            this.clmPmYear.ReadOnly = true;
+            // 
+            // clmPmStatus
+            // 
+            this.clmPmStatus.DataPropertyName = "FullStatus";
+            this.clmPmStatus.HeaderText = "Статус";
+            this.clmPmStatus.MinimumWidth = 6;
+            this.clmPmStatus.Name = "clmPmStatus";
+            this.clmPmStatus.ReadOnly = true;
+            // 
+            // clmPmFinish
+            // 
+            this.clmPmFinish.HeaderText = " ";
+            this.clmPmFinish.MinimumWidth = 6;
+            this.clmPmFinish.Name = "clmPmFinish";
+            this.clmPmFinish.ReadOnly = true;
+            this.clmPmFinish.Text = "приключи";
+            this.clmPmFinish.UseColumnTextForButtonValue = true;
+            // 
             // ViewEditProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1296, 450);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
@@ -208,6 +281,8 @@ namespace TimeTable.UI
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.npMaxHours)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewProjectMonths)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,5 +304,11 @@ namespace TimeTable.UI
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView gridViewProjectMonths;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPmMonth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPmYear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPmStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn clmPmFinish;
     }
 }

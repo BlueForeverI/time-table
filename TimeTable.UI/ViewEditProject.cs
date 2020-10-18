@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using TimeTable.Data.Models;
 using TimeTable.Services;
@@ -9,13 +10,17 @@ namespace TimeTable.UI
     {
         private Project _project;
         private ProjectService _projectService;
+        private ProjectMonthService _projectMonthService;
+        private List<ProjectMonths> _projectMonths;
 
         public ViewEditProject(Project project)
         {
             InitializeComponent();
             _projectService = new ProjectService();
-            cmbStatus.Items.AddRange(new string[] { "Активен", "Приключен" });
-            cmbStatus.Text = "Активен";
+            _projectMonthService = new ProjectMonthService();
+            cmbStatus.Items.AddRange(new string[] { "Неприключен", "Приключен" });
+            cmbStatus.Text = "Неприключен";
+            gridViewProjectMonths.AutoGenerateColumns = false;
 
             _project = project;
             txtProjectName.Text = project.ProjectName;
@@ -38,6 +43,8 @@ namespace TimeTable.UI
                 cmbStatus.Enabled = false;
                 btnSave.Enabled = false;
             }
+
+            ReloadProjectMonths();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -52,14 +59,20 @@ namespace TimeTable.UI
                 if ((cmbStatus.Text == "Приключен" &&
                     MessageBox.Show("Сигурни ли сте, че искате да приключите този проект? Действието е необратимо!", "Потвърждение", 
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    || cmbStatus.Text == "Активен")
+                    || cmbStatus.Text == "Неприключен")
                 {
-                    _project.ProjectStatus = cmbStatus.Text == "Активен" ? "O" : "C";
+                    _project.ProjectStatus = cmbStatus.Text == "Неприключен" ? "O" : "C";
                     _projectService.Update(_project);
                     DialogResult = DialogResult.OK;
                     Close();
                 }
             }
+        }
+
+        private void ReloadProjectMonths()
+        {
+            _projectMonths = _projectService.GetProjectMonths(_project.ProjectId);
+            gridViewProjectMonths.DataSource = _projectMonths;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -88,6 +101,24 @@ namespace TimeTable.UI
             }
 
             return result;
+        }
+
+        private void gridViewProjectMonths_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gridViewProjectMonths.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                ProjectMonths pm = _projectMonths[e.RowIndex];
+                if (pm.ProjectMonthStatus == "C")
+                {
+                    MessageBox.Show("Отчетният месец вече е приключен!");
+                }
+                else
+                {
+                    pm.ProjectMonthStatus = "C";
+                    _projectMonthService.Update(pm);
+                    ReloadProjectMonths();
+                }
+            }
         }
     }
 }

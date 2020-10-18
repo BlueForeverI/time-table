@@ -26,7 +26,7 @@ namespace TimeTable.Data.Models
         {
             get
             {
-                return ProjectStatus == "O" ? "Активен" : "Приключен";
+                return ProjectStatus == "O" ? "Неприключен" : "Приключен";
             }
         }
     }

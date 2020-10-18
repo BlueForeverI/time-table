@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using TimeTable.Data.Models;
+using TimeTable.Data.ViewModels;
 using TimeTable.Services;
 
 namespace TimeTable.UI
@@ -13,7 +14,7 @@ namespace TimeTable.UI
         private Project _project;
         private ProjectService _projectService;
         private ProjectMonthService _projectMonthService;
-        private List<ProjectMonths> _projectMonths;
+        private List<ProjectMonthViewModel> _projectMonths;
 
         public ViewEditProject(Project project)
         {
@@ -109,13 +110,18 @@ namespace TimeTable.UI
         {
             if (gridViewProjectMonths.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
-                ProjectMonths pm = _projectMonths[e.RowIndex];
-                if (pm.ProjectMonthStatus == "C")
+                ProjectMonthViewModel pmvm = _projectMonths[e.RowIndex];
+                if (pmvm.ProjectMonthStatus == "C")
                 {
                     MessageBox.Show("Отчетният месец вече е приключен!");
                 }
                 else
                 {
+                    ProjectMonths pm = new ProjectMonths();
+                    pm.ProjectId = pmvm.ProjectId;
+                    pm.ProjectMonthId = pmvm.ProjectMonthId;
+                    pm.ProjectMonth = pmvm.ProjectMonth;
+                    pm.ProjectYear = pmvm.ProjectYear;
                     pm.ProjectMonthStatus = "C";
                     _projectMonthService.Update(pm);
                     ReloadProjectMonths();

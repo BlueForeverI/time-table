@@ -50,10 +50,17 @@ namespace TimeTable.UI
             this.clmPmYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPmStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPmFinish = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.npPmMonth = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.npPmYear = new System.Windows.Forms.NumericUpDown();
+            this.btnAddProjectMonth = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.npMaxHours)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewProjectMonths)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npPmMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npPmYear)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -265,11 +272,88 @@ namespace TimeTable.UI
             this.clmPmFinish.Text = "приключи";
             this.clmPmFinish.UseColumnTextForButtonValue = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(806, 413);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 20);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Месец";
+            // 
+            // npPmMonth
+            // 
+            this.npPmMonth.Location = new System.Drawing.Point(866, 411);
+            this.npPmMonth.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.npPmMonth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.npPmMonth.Name = "npPmMonth";
+            this.npPmMonth.Size = new System.Drawing.Size(65, 27);
+            this.npPmMonth.TabIndex = 11;
+            this.npPmMonth.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(976, 413);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 20);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Година";
+            // 
+            // npPmYear
+            // 
+            this.npPmYear.Location = new System.Drawing.Point(1060, 411);
+            this.npPmYear.Maximum = new decimal(new int[] {
+            2100,
+            0,
+            0,
+            0});
+            this.npPmYear.Minimum = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
+            this.npPmYear.Name = "npPmYear";
+            this.npPmYear.Size = new System.Drawing.Size(82, 27);
+            this.npPmYear.TabIndex = 13;
+            this.npPmYear.Value = new decimal(new int[] {
+            2020,
+            0,
+            0,
+            0});
+            // 
+            // btnAddProjectMonth
+            // 
+            this.btnAddProjectMonth.Location = new System.Drawing.Point(1184, 409);
+            this.btnAddProjectMonth.Name = "btnAddProjectMonth";
+            this.btnAddProjectMonth.Size = new System.Drawing.Size(94, 29);
+            this.btnAddProjectMonth.TabIndex = 14;
+            this.btnAddProjectMonth.Text = "Добави";
+            this.btnAddProjectMonth.UseVisualStyleBackColor = true;
+            this.btnAddProjectMonth.Click += new System.EventHandler(this.btnAddProjectMonth_Click);
+            // 
             // ViewEditProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1296, 450);
+            this.Controls.Add(this.btnAddProjectMonth);
+            this.Controls.Add(this.npPmYear);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.npPmMonth);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -277,13 +361,16 @@ namespace TimeTable.UI
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewEditProject";
-            this.Text = "Преглед/редакция на проект";
+            this.Text = "Година";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.npMaxHours)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewProjectMonths)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npPmMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npPmYear)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -310,5 +397,10 @@ namespace TimeTable.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPmYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPmStatus;
         private System.Windows.Forms.DataGridViewButtonColumn clmPmFinish;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown npPmMonth;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown npPmYear;
+        private System.Windows.Forms.Button btnAddProjectMonth;
     }
 }

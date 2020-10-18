@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Internal;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using TimeTable.Data.Models;
 using TimeTable.Services;
@@ -118,6 +120,31 @@ namespace TimeTable.UI
                     _projectMonthService.Update(pm);
                     ReloadProjectMonths();
                 }
+            }
+        }
+
+        private void btnAddProjectMonth_Click(object sender, EventArgs e)
+        {
+            DateTime date = new DateTime((int)npPmYear.Value, (int)npPmMonth.Value, 15);
+            DateTime start = new DateTime(dpStart.Value.Year, dpStart.Value.Month, 1);
+            DateTime end = new DateTime(dpEnd.Value.Year, dpEnd.Value.Month, 31);
+            if (date < start || date > end)
+            {
+                Helpers.ShowError("Отчетният месец трябва да е в периода на проекта");
+            }
+            else if (_projectMonths.Any(pm => pm.ProjectMonth == npPmMonth.Value && pm.ProjectYear == npPmYear.Value))
+            {
+                Helpers.ShowError("Отчетният месец вече съшествува");
+            }
+            else
+            {
+                ProjectMonths pm = new ProjectMonths();
+                pm.ProjectId = _project.ProjectId;
+                pm.ProjectMonth = npPmMonth.Value;
+                pm.ProjectYear = npPmYear.Value;
+                pm.ProjectMonthStatus = "O";
+                _projectMonthService.Add(pm);
+                ReloadProjectMonths();
             }
         }
     }

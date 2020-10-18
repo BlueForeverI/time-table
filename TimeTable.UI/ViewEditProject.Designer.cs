@@ -1,7 +1,7 @@
 ﻿
 namespace TimeTable.UI
 {
-    partial class AddProject
+    partial class ViewEditProject
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,8 @@ namespace TimeTable.UI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.npMaxHours = new System.Windows.Forms.NumericUpDown();
             this.dpEnd = new System.Windows.Forms.DateTimePicker();
             this.dpStart = new System.Windows.Forms.DateTimePicker();
@@ -41,13 +43,15 @@ namespace TimeTable.UI
             this.txtProjectName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.npMaxHours)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbStatus);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.npMaxHours);
             this.groupBox1.Controls.Add(this.dpEnd);
             this.groupBox1.Controls.Add(this.dpStart);
@@ -58,19 +62,37 @@ namespace TimeTable.UI
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtProjectName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 0);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(497, 332);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.Size = new System.Drawing.Size(497, 391);
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Данни за проект";
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(226, 330);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(265, 28);
+            this.cmbStatus.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 333);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Статус";
             // 
             // npMaxHours
             // 
             this.npMaxHours.Location = new System.Drawing.Point(226, 263);
             this.npMaxHours.Maximum = new decimal(new int[] {
-            10000000,
-            0,
+            1215752192,
+            23,
             0,
             0});
             this.npMaxHours.Name = "npMaxHours";
@@ -153,36 +175,36 @@ namespace TimeTable.UI
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(359, 338);
+            this.btnCancel.Location = new System.Drawing.Point(388, 409);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(150, 29);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Size = new System.Drawing.Size(121, 29);
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Отказ";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnCreate
+            // btnSave
             // 
-            this.btnCreate.Location = new System.Drawing.Point(12, 338);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(150, 29);
-            this.btnCreate.TabIndex = 6;
-            this.btnCreate.Text = "Създай";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            this.btnSave.Location = new System.Drawing.Point(12, 409);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(110, 29);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Запази";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // AddProject
+            // ViewEditProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 386);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnCreate);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AddProject";
-            this.Text = "Създаване на проект";
+            this.Name = "ViewEditProject";
+            this.Text = "Преглед/редакция на проект";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.npMaxHours)).EndInit();
@@ -193,17 +215,19 @@ namespace TimeTable.UI
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtProjectName;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown npMaxHours;
         private System.Windows.Forms.DateTimePicker dpEnd;
         private System.Windows.Forms.DateTimePicker dpStart;
         private System.Windows.Forms.TextBox txtProjectDescription;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtProjectName;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -52,13 +52,14 @@ namespace TimeTable.UI
             this.txtSearchProjectt = new System.Windows.Forms.TextBox();
             this.btnAddProject = new System.Windows.Forms.Button();
             this.dataGridProjects = new System.Windows.Forms.DataGridView();
+            this.txtSearchProject = new System.Windows.Forms.TextBox();
             this.clmProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearchProject = new System.Windows.Forms.TextBox();
+            this.clmProjectActions = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
@@ -301,13 +302,23 @@ namespace TimeTable.UI
             this.clmProjectStart,
             this.clmProjectEnd,
             this.clmProjectDescription,
-            this.clmProjectStatus});
+            this.clmProjectStatus,
+            this.clmProjectActions});
             this.dataGridProjects.Location = new System.Drawing.Point(3, 96);
             this.dataGridProjects.Name = "dataGridProjects";
             this.dataGridProjects.ReadOnly = true;
             this.dataGridProjects.RowHeadersWidth = 51;
             this.dataGridProjects.Size = new System.Drawing.Size(1226, 469);
             this.dataGridProjects.TabIndex = 0;
+            this.dataGridProjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProjects_CellContentClick);
+            // 
+            // txtSearchProject
+            // 
+            this.txtSearchProject.Location = new System.Drawing.Point(4, 38);
+            this.txtSearchProject.Name = "txtSearchProject";
+            this.txtSearchProject.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSearchProject.Size = new System.Drawing.Size(295, 27);
+            this.txtSearchProject.TabIndex = 2;
             // 
             // clmProjectId
             // 
@@ -357,13 +368,14 @@ namespace TimeTable.UI
             this.clmProjectStatus.Name = "clmProjectStatus";
             this.clmProjectStatus.ReadOnly = true;
             // 
-            // txtSearchProject
+            // clmProjectActions
             // 
-            this.txtSearchProject.Location = new System.Drawing.Point(4, 38);
-            this.txtSearchProject.Name = "txtSearchProject";
-            this.txtSearchProject.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSearchProject.Size = new System.Drawing.Size(295, 27);
-            this.txtSearchProject.TabIndex = 2;
+            this.clmProjectActions.HeaderText = " ";
+            this.clmProjectActions.MinimumWidth = 6;
+            this.clmProjectActions.Name = "clmProjectActions";
+            this.clmProjectActions.ReadOnly = true;
+            this.clmProjectActions.Text = "   преглед/редакция    ";
+            this.clmProjectActions.UseColumnTextForButtonValue = true;
             // 
             // Main
             // 
@@ -416,5 +428,6 @@ namespace TimeTable.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectEnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn clmProjectActions;
     }
 }

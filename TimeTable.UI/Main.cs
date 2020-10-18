@@ -149,5 +149,17 @@ namespace TimeTable.UI
                 }
             }
         }
+
+        private void dataGridProjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridProjects.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                Project project = _allProjects[e.RowIndex];
+                if (new ViewEditProject(project).ShowDialog() == DialogResult.OK)
+                {
+                    ReloadProjects();
+                }
+            }
+        }
     }
 }

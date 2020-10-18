@@ -31,6 +31,7 @@ namespace TimeTable.UI
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnClearEmployeeSearch = new System.Windows.Forms.Button();
             this.btnSearchEmployee = new System.Windows.Forms.Button();
             this.cmbSearchEmployeeType = new System.Windows.Forms.ComboBox();
             this.txtSearchEmployee = new System.Windows.Forms.TextBox();
@@ -43,7 +44,12 @@ namespace TimeTable.UI
             this.clmFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmHireData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmActions = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnClearProjectSearch = new System.Windows.Forms.Button();
+            this.btnSearchProject = new System.Windows.Forms.Button();
+            this.cmbSearchProjectType = new System.Windows.Forms.ComboBox();
+            this.txtSearchProjectt = new System.Windows.Forms.TextBox();
             this.btnAddProject = new System.Windows.Forms.Button();
             this.dataGridProjects = new System.Windows.Forms.DataGridView();
             this.clmProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +58,7 @@ namespace TimeTable.UI
             this.clmProjectEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnClearEmployeeSearch = new System.Windows.Forms.Button();
+            this.txtSearchProject = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
@@ -64,10 +70,10 @@ namespace TimeTable.UI
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(13, 13);
+            this.tabControl1.Location = new System.Drawing.Point(3, 9);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1157, 636);
+            this.tabControl1.Size = new System.Drawing.Size(1240, 636);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -82,14 +88,24 @@ namespace TimeTable.UI
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1149, 603);
+            this.tabPage1.Size = new System.Drawing.Size(1232, 603);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Служители";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // btnClearEmployeeSearch
+            // 
+            this.btnClearEmployeeSearch.Location = new System.Drawing.Point(631, 36);
+            this.btnClearEmployeeSearch.Name = "btnClearEmployeeSearch";
+            this.btnClearEmployeeSearch.Size = new System.Drawing.Size(94, 29);
+            this.btnClearEmployeeSearch.TabIndex = 5;
+            this.btnClearEmployeeSearch.Text = "Изчисти";
+            this.btnClearEmployeeSearch.UseVisualStyleBackColor = true;
+            this.btnClearEmployeeSearch.Click += new System.EventHandler(this.btnClearEmployeeSearch_Click);
+            // 
             // btnSearchEmployee
             // 
-            this.btnSearchEmployee.Location = new System.Drawing.Point(531, 35);
+            this.btnSearchEmployee.Location = new System.Drawing.Point(531, 36);
             this.btnSearchEmployee.Name = "btnSearchEmployee";
             this.btnSearchEmployee.Size = new System.Drawing.Size(94, 30);
             this.btnSearchEmployee.TabIndex = 4;
@@ -115,7 +131,7 @@ namespace TimeTable.UI
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(1052, 571);
+            this.btnAddEmployee.Location = new System.Drawing.Point(1135, 571);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(94, 29);
             this.btnAddEmployee.TabIndex = 1;
@@ -136,12 +152,14 @@ namespace TimeTable.UI
             this.clmSurname,
             this.clmFamilyName,
             this.clmPosition,
-            this.clmHireData});
+            this.clmHireData,
+            this.clmActions});
             this.dataGridEmployees.Location = new System.Drawing.Point(3, 96);
             this.dataGridEmployees.Name = "dataGridEmployees";
             this.dataGridEmployees.RowHeadersWidth = 51;
-            this.dataGridEmployees.Size = new System.Drawing.Size(1143, 469);
+            this.dataGridEmployees.Size = new System.Drawing.Size(1226, 469);
             this.dataGridEmployees.TabIndex = 0;
+            this.dataGridEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployees_CellContentClick);
             // 
             // clmEmployeeId
             // 
@@ -199,21 +217,71 @@ namespace TimeTable.UI
             this.clmHireData.Name = "clmHireData";
             this.clmHireData.ReadOnly = true;
             // 
+            // clmActions
+            // 
+            this.clmActions.HeaderText = "";
+            this.clmActions.MinimumWidth = 6;
+            this.clmActions.Name = "clmActions";
+            this.clmActions.ReadOnly = true;
+            this.clmActions.Text = "   преглед/редакция   ";
+            this.clmActions.UseColumnTextForButtonValue = true;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnClearProjectSearch);
+            this.tabPage2.Controls.Add(this.btnSearchProject);
+            this.tabPage2.Controls.Add(this.cmbSearchProjectType);
+            this.tabPage2.Controls.Add(this.txtSearchProjectt);
             this.tabPage2.Controls.Add(this.btnAddProject);
             this.tabPage2.Controls.Add(this.dataGridProjects);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1149, 603);
+            this.tabPage2.Size = new System.Drawing.Size(1232, 603);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Проекти";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnClearProjectSearch
+            // 
+            this.btnClearProjectSearch.Location = new System.Drawing.Point(631, 36);
+            this.btnClearProjectSearch.Name = "btnClearProjectSearch";
+            this.btnClearProjectSearch.Size = new System.Drawing.Size(94, 29);
+            this.btnClearProjectSearch.TabIndex = 7;
+            this.btnClearProjectSearch.Text = "Изчисти";
+            this.btnClearProjectSearch.UseVisualStyleBackColor = true;
+            this.btnClearProjectSearch.Click += new System.EventHandler(this.btnClearProjectSearch_Click);
+            // 
+            // btnSearchProject
+            // 
+            this.btnSearchProject.Location = new System.Drawing.Point(531, 36);
+            this.btnSearchProject.Name = "btnSearchProject";
+            this.btnSearchProject.Size = new System.Drawing.Size(94, 30);
+            this.btnSearchProject.TabIndex = 6;
+            this.btnSearchProject.Text = "Търси";
+            this.btnSearchProject.UseVisualStyleBackColor = true;
+            this.btnSearchProject.Click += new System.EventHandler(this.btnSearchProject_Click);
+            // 
+            // cmbSearchProjectType
+            // 
+            this.cmbSearchProjectType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSearchProjectType.FormattingEnabled = true;
+            this.cmbSearchProjectType.Location = new System.Drawing.Point(305, 37);
+            this.cmbSearchProjectType.Name = "cmbSearchProjectType";
+            this.cmbSearchProjectType.Size = new System.Drawing.Size(220, 28);
+            this.cmbSearchProjectType.TabIndex = 4;
+            // 
+            // txtSearchProjectt
+            // 
+            this.txtSearchProjectt.Location = new System.Drawing.Point(4, 38);
+            this.txtSearchProjectt.Name = "txtSearchProjectt";
+            this.txtSearchProjectt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSearchProjectt.Size = new System.Drawing.Size(295, 27);
+            this.txtSearchProjectt.TabIndex = 2;
+            // 
             // btnAddProject
             // 
-            this.btnAddProject.Location = new System.Drawing.Point(1051, 570);
+            this.btnAddProject.Location = new System.Drawing.Point(1135, 571);
             this.btnAddProject.Name = "btnAddProject";
             this.btnAddProject.Size = new System.Drawing.Size(94, 29);
             this.btnAddProject.TabIndex = 1;
@@ -234,11 +302,11 @@ namespace TimeTable.UI
             this.clmProjectEnd,
             this.clmProjectDescription,
             this.clmProjectStatus});
-            this.dataGridProjects.Location = new System.Drawing.Point(3, 3);
+            this.dataGridProjects.Location = new System.Drawing.Point(3, 96);
             this.dataGridProjects.Name = "dataGridProjects";
             this.dataGridProjects.ReadOnly = true;
             this.dataGridProjects.RowHeadersWidth = 51;
-            this.dataGridProjects.Size = new System.Drawing.Size(1143, 560);
+            this.dataGridProjects.Size = new System.Drawing.Size(1226, 469);
             this.dataGridProjects.TabIndex = 0;
             // 
             // clmProjectId
@@ -283,27 +351,25 @@ namespace TimeTable.UI
             // 
             // clmProjectStatus
             // 
-            this.clmProjectStatus.DataPropertyName = "ProjectStatus";
+            this.clmProjectStatus.DataPropertyName = "FullStatus";
             this.clmProjectStatus.HeaderText = "Статус";
             this.clmProjectStatus.MinimumWidth = 6;
             this.clmProjectStatus.Name = "clmProjectStatus";
             this.clmProjectStatus.ReadOnly = true;
             // 
-            // btnClearEmployeeSearch
+            // txtSearchProject
             // 
-            this.btnClearEmployeeSearch.Location = new System.Drawing.Point(631, 35);
-            this.btnClearEmployeeSearch.Name = "btnClearEmployeeSearch";
-            this.btnClearEmployeeSearch.Size = new System.Drawing.Size(94, 29);
-            this.btnClearEmployeeSearch.TabIndex = 5;
-            this.btnClearEmployeeSearch.Text = "Изчисти";
-            this.btnClearEmployeeSearch.UseVisualStyleBackColor = true;
-            this.btnClearEmployeeSearch.Click += new System.EventHandler(this.btnClearEmployeeSearch_Click);
+            this.txtSearchProject.Location = new System.Drawing.Point(4, 38);
+            this.txtSearchProject.Name = "txtSearchProject";
+            this.txtSearchProject.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSearchProject.Size = new System.Drawing.Size(295, 27);
+            this.txtSearchProject.TabIndex = 2;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 661);
+            this.ClientSize = new System.Drawing.Size(1265, 661);
             this.Controls.Add(this.tabControl1);
             this.Name = "Main";
             this.Text = "Отчитане на отработено време";
@@ -312,6 +378,7 @@ namespace TimeTable.UI
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProjects)).EndInit();
             this.ResumeLayout(false);
 
@@ -324,14 +391,12 @@ namespace TimeTable.UI
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridEmployees;
         private System.Windows.Forms.DataGridView dataGridProjects;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectEnd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStatus;
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.Button btnAddProject;
+        private System.Windows.Forms.Button btnSearchEmployee;
+        private System.Windows.Forms.ComboBox cmbSearchEmployeeType;
+        private System.Windows.Forms.TextBox txtSearchEmployee;
+        private System.Windows.Forms.Button btnClearEmployeeSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEmployeeId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEgn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
@@ -339,9 +404,17 @@ namespace TimeTable.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFamilyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmHireData;
-        private System.Windows.Forms.Button btnSearchEmployee;
-        private System.Windows.Forms.ComboBox cmbSearchEmployeeType;
-        private System.Windows.Forms.TextBox txtSearchEmployee;
-        private System.Windows.Forms.Button btnClearEmployeeSearch;
+        private System.Windows.Forms.DataGridViewButtonColumn clmActions;
+        private System.Windows.Forms.Button btnClearProjectSearch;
+        private System.Windows.Forms.Button btnSearchProject;
+        private System.Windows.Forms.ComboBox cmbSearchProjectType;
+        private System.Windows.Forms.TextBox txtSearchProjectt;
+        private System.Windows.Forms.TextBox txtSearchProject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectEnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStatus;
     }
 }

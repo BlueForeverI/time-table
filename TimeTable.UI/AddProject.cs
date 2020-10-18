@@ -47,26 +47,21 @@ namespace TimeTable.UI
             bool result = true;
             if (string.IsNullOrEmpty(txtProjectName.Text))
             {
-                ShowError("Полето Име е задължително");
+                Helpers.ShowError("Полето Име е задължително");
                 result = false;
             }
             else if (string.IsNullOrEmpty(txtProjectDescription.Text))
             {
-                ShowError("Полето Описание е задължително");
+                Helpers.ShowError("Полето Описание е задължително");
                 result = false;
             }
             else if (npMaxHours.Value <= 0)
             {
-                ShowError("Максималният брой часове трябва да е положителен");
+                Helpers.ShowError("Максималният брой часове трябва да е положителен");
                 result = false;
             }
 
             return result;
-        }
-
-        private void ShowError(string message)
-        {
-            MessageBox.Show(message, "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

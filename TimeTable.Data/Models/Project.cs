@@ -21,5 +21,13 @@ namespace TimeTable.Data.Models
 
         public virtual ICollection<ProjectHours> ProjectHours { get; set; }
         public virtual ICollection<ProjectMonths> ProjectMonths { get; set; }
+
+        public string FullStatus
+        {
+            get
+            {
+                return ProjectStatus == "O" ? "Активен" : "Приключен";
+            }
+        }
     }
 }

@@ -1,40 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using TimeTable.Data.Models;
 using TimeTable.Services;
 
 namespace TimeTable.UI
 {
-    public partial class AddEmployee : Form
+    public partial class ViewEditEmployee : Form
     {
+        private Employee _employee;
         private EmployeeService _employeeService;
-        public AddEmployee()
+
+        public ViewEditEmployee(Employee employee)
         {
             InitializeComponent();
-            _employeeService = new EmployeeService();
             cmbPosition.Items.AddRange(new string[] { "Стажант", "Служител", "Мениджър" });
-            cmbPosition.Text = "Служител";
+            _employeeService = new EmployeeService();
+
+            _employee = employee;
+            txtEgn.Text = employee.EmployeeEgn;
+            txtName.Text = employee.EmployeeName;
+            txtSurname.Text = employee.EmployeeSurname;
+            txtFamilyName.Text = employee.EmployeeLastname;
+            cmbPosition.Text = employee.EmployeePosition;
+            dpHireDate.Value = (DateTime) employee.EmployeeHiredate;
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateEmployee())
             {
-                Employee employee = new Employee();
-                employee.EmployeeEgn = txtEgn.Text;
-                employee.EmployeeName = txtName.Text;
-                employee.EmployeeSurname = txtSurname.Text;
-                employee.EmployeeLastname = txtFamilyName.Text;
-                employee.EmployeePosition = cmbPosition.Text;
-                employee.EmployeeHiredate = dpHireDate.Value;
-                _employeeService.Add(employee);
-                this.DialogResult = DialogResult.OK;
+                _employee.EmployeeEgn = txtEgn.Text;
+                _employee.EmployeeName = txtName.Text;
+                _employee.EmployeeSurname = txtSurname.Text;
+                _employee.EmployeeLastname = txtFamilyName.Text;
+                _employee.EmployeePosition = cmbPosition.Text;
+                _employee.EmployeeHiredate = dpHireDate.Value;
+                _employeeService.Update(_employee);
+                DialogResult = DialogResult.OK;
                 Close();
             }
         }
@@ -69,12 +77,6 @@ namespace TimeTable.UI
             }
 
             return result;
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            Close();
         }
     }
 }

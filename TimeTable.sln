@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTable.Data", "TimeTable
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTable.UI", "TimeTable.UI\TimeTable.UI.csproj", "{266082BD-B993-4DFD-A412-2D5415B47166}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTable.Services", "TimeTable.Services\TimeTable.Services.csproj", "{D799E6C8-CAA7-4691-8958-68A485324A54}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTable.ConsoleTest", "TimeTable.ConsoleTest\TimeTable.ConsoleTest.csproj", "{681BB82A-616D-485A-BA4E-9B31FC52C0DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTable.Services", "TimeTable.Services\TimeTable.Services.csproj", "{D799E6C8-CAA7-4691-8958-68A485324A54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{D799E6C8-CAA7-4691-8958-68A485324A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D799E6C8-CAA7-4691-8958-68A485324A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D799E6C8-CAA7-4691-8958-68A485324A54}.Release|Any CPU.Build.0 = Release|Any CPU
-		{681BB82A-616D-485A-BA4E-9B31FC52C0DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{681BB82A-616D-485A-BA4E-9B31FC52C0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{681BB82A-616D-485A-BA4E-9B31FC52C0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{681BB82A-616D-485A-BA4E-9B31FC52C0DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

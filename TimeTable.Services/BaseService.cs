@@ -25,6 +25,12 @@ namespace TimeTable.Services
             return saved.Entity;
         }
 
+        public virtual void Update(T entity)
+        {
+            _context.Update(entity);
+            _context.SaveChanges();
+        }
+
         public virtual T GetById(decimal id)
         {
             return _context.Set<T>().Find(id);

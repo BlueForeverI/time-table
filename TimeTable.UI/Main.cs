@@ -12,6 +12,8 @@ namespace TimeTable.UI
         private EmployeeService _employeeService;
         private ProjectService _projectService;
         private List<Employee> _allEmployees;
+        private List<Project> _allProjects;
+
         public Main()
         {
             InitializeComponent();
@@ -25,26 +27,39 @@ namespace TimeTable.UI
 
             cmbSearchEmployeeType.Items.AddRange(new string[] { "ЕГН", "Име", "Презиме", "Фамилия", "Длъжност", "Дата на постъпване" });
             cmbSearchEmployeeType.Text = "ЕГН";
+
+            cmbSearchProjectType.Items.AddRange(new string[] { "Име", "Начало", "Край", "Описание", "Статус" });
+            cmbSearchProjectType.Text = "Име";
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
+        {
+            ReloadEmployees();
+        }
+
+        private void ReloadEmployees()
         {
             _allEmployees = _employeeService.GetAll();
             dataGridEmployees.DataSource = _allEmployees;
         }
 
+        private void ReloadProjects()
+        {
+
+            _allProjects = _projectService.GetAll();
+            dataGridProjects.DataSource = _allProjects;
+        }
+
         private void tabPage2_Click(object sender, EventArgs e)
         {
-            var allProjects = _projectService.GetAll();
-            dataGridProjects.DataSource = allProjects;
+            ReloadProjects();
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             if (new AddEmployee().ShowDialog() == DialogResult.OK)
             {
-                _allEmployees = _employeeService.GetAll();
-                dataGridEmployees.DataSource = _allEmployees;
+                ReloadEmployees();
             }
         }
 
@@ -89,6 +104,50 @@ namespace TimeTable.UI
         {
             txtSearchEmployee.Text = "";
             dataGridEmployees.DataSource = _allEmployees;
+        }
+
+        private void dataGridEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridEmployees.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                Employee employee = _allEmployees[e.RowIndex];
+                if (new ViewEditEmployee(employee).ShowDialog() == DialogResult.OK)
+                {
+                    ReloadEmployees();
+                }
+            }
+        }
+
+        private void btnClearProjectSearch_Click(object sender, EventArgs e)
+        {
+            txtSearchProject.Text = "";
+            dataGridProjects.DataSource = _allProjects;
+        }
+
+        private void btnSearchProject_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSearchProjectt.Text))
+            {
+                var query = txtSearchProjectt.Text;
+                switch (cmbSearchProjectType.Text)
+                {
+                    case "Име":
+                        dataGridProjects.DataSource = _allProjects.Where(p => p.ProjectName.Contains(query)).ToList();
+                        break;
+                    case "Начало":
+                        dataGridProjects.DataSource = _allProjects.Where(p => p.ProjectBegin.ToString().Contains(query)).ToList();
+                        break;
+                    case "Край":
+                        dataGridProjects.DataSource = _allProjects.Where(p => p.ProjectEnd.ToString().Contains(query)).ToList();
+                        break;
+                    case "Описание":
+                        dataGridProjects.DataSource = _allProjects.Where(p => p.ProjectDescription.Contains(query)).ToList();
+                        break;
+                    case "Статус":
+                        dataGridProjects.DataSource = _allProjects.Where(p => p.FullStatus.Contains(query)).ToList();
+                        break;
+                }
+            }
         }
     }
 }

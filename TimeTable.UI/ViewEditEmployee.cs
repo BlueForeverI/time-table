@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using TimeTable.Data.Models;
+using TimeTable.Data.ViewModels;
 using TimeTable.Services;
+using TimeTable.ViewModels;
 
 namespace TimeTable.UI
 {
@@ -9,6 +12,8 @@ namespace TimeTable.UI
     {
         private Employee _employee;
         private EmployeeService _employeeService;
+        private List<EmployeeProjectTimeViewModel> _projectHours;
+        private List<EmployeeMonthTimeViewModel> _employeeMonthHours;
 
         public ViewEditEmployee(Employee employee)
         {
@@ -23,6 +28,14 @@ namespace TimeTable.UI
             txtFamilyName.Text = employee.EmployeeLastname;
             cmbPosition.Text = employee.EmployeePosition;
             dpHireDate.Value = (DateTime) employee.EmployeeHiredate;
+
+            _projectHours = _employeeService.GetEmployeeProjectHours(employee.EmployeeId);
+            dataGridProjectTime.DataSource = _projectHours;
+            dataGridProjectTime.AutoGenerateColumns = false;
+
+            _employeeMonthHours = _employeeService.GetEmployeeMonthHours(employee.EmployeeId);
+            dataGridEmployeeMonth.DataSource = _employeeMonthHours;
+            dataGridEmployeeMonth.AutoGenerateColumns = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

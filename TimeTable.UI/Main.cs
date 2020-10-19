@@ -111,9 +111,16 @@ namespace TimeTable.UI
             if (dataGridEmployees.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
                 Employee employee = _allEmployees[e.RowIndex];
-                if (new ViewEditEmployee(employee).ShowDialog() == DialogResult.OK)
+                if (e.ColumnIndex == 7)
                 {
-                    ReloadEmployees();
+                    if (new ViewEditEmployee(employee).ShowDialog() == DialogResult.OK)
+                    {
+                        ReloadEmployees();
+                    }
+                }
+                else
+                {
+                    new EmployeeTime(employee.EmployeeId).ShowDialog();
                 }
             }
         }

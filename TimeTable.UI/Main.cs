@@ -41,6 +41,7 @@ namespace TimeTable.UI
         {
             _allEmployees = _employeeService.GetAll();
             dataGridEmployees.DataSource = _allEmployees;
+            dataGridProjects.Refresh();
         }
 
         private void ReloadProjects()
@@ -48,6 +49,7 @@ namespace TimeTable.UI
 
             _allProjects = _projectService.GetAll();
             dataGridProjects.DataSource = _allProjects;
+            dataGridProjects.Refresh();
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -67,7 +69,7 @@ namespace TimeTable.UI
         {
             if (new AddProject().ShowDialog() == DialogResult.OK)
             {
-                dataGridProjects.DataSource = _projectService.GetAll();
+                ReloadProjects();
             }
         }
 

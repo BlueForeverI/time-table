@@ -46,6 +46,7 @@ namespace TimeTable.Services
                 .Include(ph => ph.Project)
                 .Select(ph => new ProjectHoursViewModel()
                 {
+                    EmployeeId = employeeId,
                     ProjectId = ph.ProjectId,
                     Date = ph.ProjectTaskdate,
                     Project = ph.Project.ProjectName,

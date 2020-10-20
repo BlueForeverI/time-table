@@ -133,7 +133,7 @@ namespace TimeTable.UI
         {
             DateTime date = new DateTime((int)npPmYear.Value, (int)npPmMonth.Value, 15);
             DateTime start = new DateTime(dpStart.Value.Year, dpStart.Value.Month, 1);
-            DateTime end = new DateTime(dpEnd.Value.Year, dpEnd.Value.Month, 31);
+            DateTime end = new DateTime(dpEnd.Value.Year, dpEnd.Value.Month, DateTime.DaysInMonth(dpEnd.Value.Year, dpEnd.Value.Month));
             if (date < start || date > end)
             {
                 Helpers.ShowError("Отчетният месец трябва да е в периода на проекта");

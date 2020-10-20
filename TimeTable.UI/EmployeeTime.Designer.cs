@@ -36,19 +36,20 @@ namespace TimeTable.UI
             this.label2 = new System.Windows.Forms.Label();
             this.cmbProject = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTask = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.npHours = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddTime = new System.Windows.Forms.Button();
             this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployeeHours)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npHours)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +74,7 @@ namespace TimeTable.UI
             this.clmProject,
             this.clmTask,
             this.clmHours,
+            this.clmEdit,
             this.clmDelete});
             this.dataGridEmployeeHours.Location = new System.Drawing.Point(7, 27);
             this.dataGridEmployeeHours.Name = "dataGridEmployeeHours";
@@ -80,6 +82,7 @@ namespace TimeTable.UI
             this.dataGridEmployeeHours.RowTemplate.Height = 29;
             this.dataGridEmployeeHours.Size = new System.Drawing.Size(1118, 392);
             this.dataGridEmployeeHours.TabIndex = 0;
+            this.dataGridEmployeeHours.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployeeHours_CellContentClick);
             this.dataGridEmployeeHours.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployeeHours_CellEndEdit);
             // 
             // label1
@@ -125,12 +128,12 @@ namespace TimeTable.UI
             this.label3.TabIndex = 5;
             this.label3.Text = "Дейност";
             // 
-            // textBox1
+            // txtTask
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 146);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 27);
-            this.textBox1.TabIndex = 6;
+            this.txtTask.Location = new System.Drawing.Point(110, 146);
+            this.txtTask.Name = "txtTask";
+            this.txtTask.Size = new System.Drawing.Size(250, 27);
+            this.txtTask.TabIndex = 6;
             // 
             // label4
             // 
@@ -141,22 +144,37 @@ namespace TimeTable.UI
             this.label4.TabIndex = 7;
             this.label4.Text = "Часове";
             // 
-            // numericUpDown1
+            // npHours
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(110, 200);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(150, 27);
-            this.numericUpDown1.TabIndex = 8;
+            this.npHours.Location = new System.Drawing.Point(110, 200);
+            this.npHours.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.npHours.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.npHours.Name = "npHours";
+            this.npHours.Size = new System.Drawing.Size(150, 27);
+            this.npHours.TabIndex = 8;
+            this.npHours.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnAddTime);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.numericUpDown1);
+            this.groupBox2.Controls.Add(this.npHours);
             this.groupBox2.Controls.Add(this.dpDate);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtTask);
             this.groupBox2.Controls.Add(this.cmbProject);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(19, 12);
@@ -206,6 +224,16 @@ namespace TimeTable.UI
             this.clmHours.HeaderText = "Часове";
             this.clmHours.MinimumWidth = 6;
             this.clmHours.Name = "clmHours";
+            this.clmHours.ReadOnly = true;
+            // 
+            // clmEdit
+            // 
+            this.clmEdit.HeaderText = " ";
+            this.clmEdit.MinimumWidth = 6;
+            this.clmEdit.Name = "clmEdit";
+            this.clmEdit.ReadOnly = true;
+            this.clmEdit.Text = "редактирай";
+            this.clmEdit.UseColumnTextForButtonValue = true;
             // 
             // clmDelete
             // 
@@ -213,6 +241,8 @@ namespace TimeTable.UI
             this.clmDelete.MinimumWidth = 6;
             this.clmDelete.Name = "clmDelete";
             this.clmDelete.ReadOnly = true;
+            this.clmDelete.Text = "изтрий";
+            this.clmDelete.UseColumnTextForButtonValue = true;
             // 
             // EmployeeTime
             // 
@@ -227,7 +257,7 @@ namespace TimeTable.UI
             this.Text = "Отработено време";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployeeHours)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npHours)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -243,15 +273,16 @@ namespace TimeTable.UI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbProject;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTask;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown npHours;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnAddTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProject;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTask;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmHours;
+        private System.Windows.Forms.DataGridViewButtonColumn clmEdit;
         private System.Windows.Forms.DataGridViewButtonColumn clmDelete;
     }
 }

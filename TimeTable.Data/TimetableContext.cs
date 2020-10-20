@@ -48,7 +48,7 @@ namespace TimeTable.Data.Models
 
                 entity.ToTable("EMPLOYEES");
 
-                entity.HasIndex(e => e.EmployeeEgn)
+                entity.HasIndex(e => e.Egn)
                     .HasName("IDX_EMPLOYEE_UQ")
                     .IsUnique();
 
@@ -57,7 +57,7 @@ namespace TimeTable.Data.Models
                     .HasColumnType("numeric(18, 0)")
                     .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.EmployeeEgn)
+                entity.Property(e => e.Egn)
                     .IsRequired()
                     .HasColumnName("EMPLOYEE_EGN")
                     .HasMaxLength(10)

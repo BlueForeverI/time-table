@@ -3,15 +3,15 @@ using TimeTable.Data.Models;
 
 namespace TimeTable.Services
 {
-    public class ProjectMonthService : BaseService<ProjectMonths>
+    public class ProjectMonthService : BaseService<ProjectMonth>
     {
-        public ProjectMonths GetByDateAndProject(decimal projectId, int month, int year)
+        public ProjectMonth GetByDateAndProject(decimal projectId, int month, int year)
         {
             return _context.ProjectMonths
-                .Where(pm => pm.ProjectMonth == month 
-                    && pm.ProjectYear == year 
+                .Where(pm => pm.Month == month 
+                    && pm.Year == year 
                     && pm.ProjectId == projectId
-                    && pm.ProjectMonthStatus == "O")
+                    && pm.Status == "O")
                 .FirstOrDefault();
         }
     }

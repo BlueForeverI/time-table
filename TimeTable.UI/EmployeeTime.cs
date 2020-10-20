@@ -30,9 +30,9 @@ namespace TimeTable.UI
 
             _employeeId = employeeId;
             ReloadProjectHours();
-            _openProjects = _projectService.GetAll().Where(prj => prj.ProjectStatus == "O").ToList();
+            _openProjects = _projectService.GetAll().Where(prj => prj.Status == "O").ToList();
             cmbProject.DataSource = _openProjects;
-            cmbProject.DisplayMember = "ProjectName";
+            cmbProject.DisplayMember = "Name";
         }
 
         private void ReloadProjectHours()
@@ -57,7 +57,7 @@ namespace TimeTable.UI
             }
 
             Project project = cmbProject.SelectedValue as Project;
-            ProjectMonths activeMonth = _projectMonthService.GetByDateAndProject(project.ProjectId, taskDate.Month, taskDate.Year);
+            ProjectMonth activeMonth = _projectMonthService.GetByDateAndProject(project.ProjectId, taskDate.Month, taskDate.Year);
 
             if (activeMonth == null)
             {
@@ -80,10 +80,10 @@ namespace TimeTable.UI
             ProjectHours timeEntry = new ProjectHours();
             timeEntry.ProjectId = project.ProjectId;
             timeEntry.EmployeeId = _employeeId;
-            timeEntry.ProjectTaskdate = taskDate;
+            timeEntry.TaskDate = taskDate;
             timeEntry.ProjectMonthId = activeMonth.ProjectMonthId;
-            timeEntry.ProjectTask = txtTask.Text;
-            timeEntry.ProjectHours1 = npHours.Value;
+            timeEntry.Task = txtTask.Text;
+            timeEntry.Hours = npHours.Value;
             _projectHoursService.Add(timeEntry);
             ReloadProjectHours();
         }

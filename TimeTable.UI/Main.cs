@@ -81,22 +81,22 @@ namespace TimeTable.UI
                 switch(cmbSearchEmployeeType.Text)
                 {
                     case "ЕГН":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.EmployeeEgn.Contains(query)).ToList();
+                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Egn.Contains(query)).ToList();
                         break;
                     case "Име":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.EmployeeName.Contains(query)).ToList();
+                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Name.Contains(query)).ToList();
                         break;
                     case "Презиме":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.EmployeeSurname.Contains(query)).ToList();
+                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Surname.Contains(query)).ToList();
                         break;
                     case "Фамилия":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.EmployeeLastname.Contains(query)).ToList();
+                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Lastname.Contains(query)).ToList();
                         break;
                     case "Длъжност":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.EmployeePosition.Contains(query)).ToList();
+                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Position.Contains(query)).ToList();
                         break;
                     case "Дата на постъпване":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.EmployeeHiredate.ToString().Contains(query)).ToList();
+                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.HireDate.ToString().Contains(query)).ToList();
                         break;
                 }
             }
@@ -141,16 +141,16 @@ namespace TimeTable.UI
                 switch (cmbSearchProjectType.Text)
                 {
                     case "Име":
-                        dataGridProjects.DataSource = _allProjects.Where(p => p.ProjectName.Contains(query)).ToList();
+                        dataGridProjects.DataSource = _allProjects.Where(p => p.Name.Contains(query)).ToList();
                         break;
                     case "Начало":
-                        dataGridProjects.DataSource = _allProjects.Where(p => p.ProjectBegin.ToString().Contains(query)).ToList();
+                        dataGridProjects.DataSource = _allProjects.Where(p => p.Begin.ToString().Contains(query)).ToList();
                         break;
                     case "Край":
-                        dataGridProjects.DataSource = _allProjects.Where(p => p.ProjectEnd.ToString().Contains(query)).ToList();
+                        dataGridProjects.DataSource = _allProjects.Where(p => p.End.ToString().Contains(query)).ToList();
                         break;
                     case "Описание":
-                        dataGridProjects.DataSource = _allProjects.Where(p => p.ProjectDescription.Contains(query)).ToList();
+                        dataGridProjects.DataSource = _allProjects.Where(p => p.Description.Contains(query)).ToList();
                         break;
                     case "Статус":
                         dataGridProjects.DataSource = _allProjects.Where(p => p.FullStatus.Contains(query)).ToList();

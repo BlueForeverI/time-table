@@ -30,7 +30,7 @@ namespace TimeTable.Data.Models
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Project> Project { get; set; }
         public virtual DbSet<ProjectHours> ProjectHours { get; set; }
-        public virtual DbSet<ProjectMonths> ProjectMonths { get; set; }
+        public virtual DbSet<ProjectMonth> ProjectMonths { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -63,28 +63,28 @@ namespace TimeTable.Data.Models
                     .HasMaxLength(10)
                     .IsUnicode(true);
 
-                entity.Property(e => e.EmployeeHiredate)
+                entity.Property(e => e.HireDate)
                     .HasColumnName("EMPLOYEE_HIREDATE")
                     .HasColumnType("date");
 
-                entity.Property(e => e.EmployeeLastname)
+                entity.Property(e => e.Lastname)
                     .IsRequired()
                     .HasColumnName("EMPLOYEE_LASTNAME")
                     .HasMaxLength(50)
                     .IsUnicode(true);
 
-                entity.Property(e => e.EmployeeName)
+                entity.Property(e => e.Name)
                     .IsRequired()
                     .HasColumnName("EMPLOYEE_NAME")
                     .HasMaxLength(50)
                     .IsUnicode(true);
 
-                entity.Property(e => e.EmployeePosition)
+                entity.Property(e => e.Position)
                     .HasColumnName("EMPLOYEE_POSITION")
                     .HasMaxLength(50)
                     .IsUnicode(true);
 
-                entity.Property(e => e.EmployeeSurname)
+                entity.Property(e => e.Surname)
                     .IsRequired()
                     .HasColumnName("EMPLOYEE_SURNAME")
                     .HasMaxLength(50)
@@ -95,7 +95,7 @@ namespace TimeTable.Data.Models
             {
                 entity.ToTable("PROJECT");
 
-                entity.HasIndex(e => e.ProjectName)
+                entity.HasIndex(e => e.Name)
                     .HasName("IDX_PROJECT_UQ")
                     .IsUnique();
 
@@ -104,30 +104,30 @@ namespace TimeTable.Data.Models
                     .HasColumnType("numeric(18, 0)")
                     .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.ProjectBegin)
+                entity.Property(e => e.Begin)
                     .HasColumnName("PROJECT_BEGIN")
                     .HasColumnType("date");
 
-                entity.Property(e => e.ProjectDescription)
+                entity.Property(e => e.Description)
                     .HasColumnName("PROJECT_DESCRIPTION")
                     .HasMaxLength(400)
                     .IsUnicode(true);
 
-                entity.Property(e => e.ProjectEnd)
+                entity.Property(e => e.End)
                     .HasColumnName("PROJECT_END")
                     .HasColumnType("date");
 
-                entity.Property(e => e.ProjectMaxhours)
+                entity.Property(e => e.MaxHours)
                     .HasColumnName("PROJECT_MAXHOURS")
                     .HasColumnType("numeric(18, 0)");
 
-                entity.Property(e => e.ProjectName)
+                entity.Property(e => e.Name)
                     .IsRequired()
                     .HasColumnName("PROJECT_NAME")
                     .HasMaxLength(50)
                     .IsUnicode(true);
 
-                entity.Property(e => e.ProjectStatus)
+                entity.Property(e => e.Status)
                     .IsRequired()
                     .HasColumnName("PROJECT_STATUS")
                     .HasMaxLength(1)
@@ -137,7 +137,7 @@ namespace TimeTable.Data.Models
 
             modelBuilder.Entity<ProjectHours>(entity =>
             {
-                entity.HasKey(e => new { e.ProjectId, e.EmployeeId, e.ProjectTaskdate });
+                entity.HasKey(e => new { e.ProjectId, e.EmployeeId, e.TaskDate });
 
                 entity.ToTable("PROJECT_HOURS");
 
@@ -149,11 +149,11 @@ namespace TimeTable.Data.Models
                     .HasColumnName("EMPLOYEE_ID")
                     .HasColumnType("numeric(18, 0)");
 
-                entity.Property(e => e.ProjectTaskdate)
+                entity.Property(e => e.TaskDate)
                     .HasColumnName("PROJECT_TASKDATE")
                     .HasColumnType("date");
 
-                entity.Property(e => e.ProjectHours1)
+                entity.Property(e => e.Hours)
                     .HasColumnName("PROJECT_HOURS")
                     .HasColumnType("numeric(18, 0)");
 
@@ -161,7 +161,7 @@ namespace TimeTable.Data.Models
                     .HasColumnName("PROJECT_MONTH_ID")
                     .HasColumnType("numeric(18, 0)");
 
-                entity.Property(e => e.ProjectTask)
+                entity.Property(e => e.Task)
                     .IsRequired()
                     .HasColumnName("PROJECT_TASK")
                     .HasMaxLength(50)
@@ -185,13 +185,13 @@ namespace TimeTable.Data.Models
                     .HasConstraintName("FK_PROJECT__REFERENCE_PROJECT_");
             });
 
-            modelBuilder.Entity<ProjectMonths>(entity =>
+            modelBuilder.Entity<ProjectMonth>(entity =>
             {
                 entity.HasKey(e => e.ProjectMonthId);
 
                 entity.ToTable("PROJECT_MONTHS");
 
-                entity.HasIndex(e => new { e.ProjectId, e.ProjectYear, e.ProjectMonth })
+                entity.HasIndex(e => new { e.ProjectId, e.Year, e.Month })
                     .HasName("IDX_PROJECT_MONTHS_UQ")
                     .IsUnique();
 
@@ -204,11 +204,11 @@ namespace TimeTable.Data.Models
                     .HasColumnName("PROJECT_ID")
                     .HasColumnType("numeric(18, 0)");
 
-                entity.Property(e => e.ProjectMonth)
+                entity.Property(e => e.Month)
                     .HasColumnName("PROJECT_MONTH")
                     .HasColumnType("numeric(18, 0)");
 
-                entity.Property(e => e.ProjectMonthStatus)
+                entity.Property(e => e.Status)
                     .IsRequired()
                     .HasColumnName("PROJECT_MONTH_STATUS")
                     .HasMaxLength(1)
@@ -216,7 +216,7 @@ namespace TimeTable.Data.Models
                     .IsFixedLength()
                     .HasDefaultValueSql("('O')");
 
-                entity.Property(e => e.ProjectYear)
+                entity.Property(e => e.Year)
                     .HasColumnName("PROJECT_YEAR")
                     .HasColumnType("numeric(18, 0)");
 

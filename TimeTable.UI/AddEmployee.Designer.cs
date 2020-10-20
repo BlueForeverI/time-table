@@ -32,8 +32,6 @@ namespace TimeTable.UI
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dpHireDate = new System.Windows.Forms.DateTimePicker();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFamilyName = new System.Windows.Forms.TextBox();
@@ -44,6 +42,8 @@ namespace TimeTable.UI
             this.label2 = new System.Windows.Forms.Label();
             this.txtEgn = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,26 +84,6 @@ namespace TimeTable.UI
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Size = new System.Drawing.Size(191, 28);
             this.cmbPosition.TabIndex = 5;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(233, 342);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(163, 29);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Отказ";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(12, 342);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(148, 29);
-            this.btnCreate.TabIndex = 8;
-            this.btnCreate.Text = "Създай";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // label6
             // 
@@ -187,6 +167,26 @@ namespace TimeTable.UI
             this.label1.TabIndex = 0;
             this.label1.Text = "ЕГН";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(233, 342);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(163, 29);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Отказ";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(12, 342);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(148, 29);
+            this.btnCreate.TabIndex = 8;
+            this.btnCreate.Text = "Създай";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -195,6 +195,7 @@ namespace TimeTable.UI
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnCancel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddEmployee";

@@ -27,12 +27,12 @@ namespace TimeTable.UI
             if (ValidateEmployee())
             {
                 Employee employee = new Employee();
-                employee.EmployeeEgn = txtEgn.Text;
-                employee.EmployeeName = txtName.Text;
-                employee.EmployeeSurname = txtSurname.Text;
-                employee.EmployeeLastname = txtFamilyName.Text;
-                employee.EmployeePosition = cmbPosition.Text;
-                employee.EmployeeHiredate = dpHireDate.Value;
+                employee.Egn = txtEgn.Text;
+                employee.Name = txtName.Text;
+                employee.Surname = txtSurname.Text;
+                employee.Lastname = txtFamilyName.Text;
+                employee.Position = cmbPosition.Text;
+                employee.HireDate = dpHireDate.Value;
                 _employeeService.Add(employee);
                 this.DialogResult = DialogResult.OK;
                 Close();

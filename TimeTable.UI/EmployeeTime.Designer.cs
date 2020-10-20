@@ -31,6 +31,12 @@ namespace TimeTable.UI
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridEmployeeHours = new System.Windows.Forms.DataGridView();
+            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dpDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,12 +47,6 @@ namespace TimeTable.UI
             this.npHours = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddTime = new System.Windows.Forms.Button();
-            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployeeHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npHours)).BeginInit();
@@ -78,12 +78,63 @@ namespace TimeTable.UI
             this.clmDelete});
             this.dataGridEmployeeHours.Location = new System.Drawing.Point(7, 27);
             this.dataGridEmployeeHours.Name = "dataGridEmployeeHours";
+            this.dataGridEmployeeHours.RowHeadersVisible = false;
             this.dataGridEmployeeHours.RowHeadersWidth = 51;
             this.dataGridEmployeeHours.RowTemplate.Height = 29;
             this.dataGridEmployeeHours.Size = new System.Drawing.Size(1118, 392);
             this.dataGridEmployeeHours.TabIndex = 0;
             this.dataGridEmployeeHours.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployeeHours_CellContentClick);
             this.dataGridEmployeeHours.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployeeHours_CellEndEdit);
+            // 
+            // clmDate
+            // 
+            this.clmDate.DataPropertyName = "Date";
+            this.clmDate.HeaderText = "Дата";
+            this.clmDate.MinimumWidth = 6;
+            this.clmDate.Name = "clmDate";
+            this.clmDate.ReadOnly = true;
+            // 
+            // clmProject
+            // 
+            this.clmProject.DataPropertyName = "Project";
+            this.clmProject.HeaderText = "Проект";
+            this.clmProject.MinimumWidth = 6;
+            this.clmProject.Name = "clmProject";
+            this.clmProject.ReadOnly = true;
+            // 
+            // clmTask
+            // 
+            this.clmTask.DataPropertyName = "Task";
+            this.clmTask.HeaderText = "Описание на дейността";
+            this.clmTask.MinimumWidth = 6;
+            this.clmTask.Name = "clmTask";
+            this.clmTask.ReadOnly = true;
+            // 
+            // clmHours
+            // 
+            this.clmHours.DataPropertyName = "Hours";
+            this.clmHours.HeaderText = "Часове";
+            this.clmHours.MinimumWidth = 6;
+            this.clmHours.Name = "clmHours";
+            this.clmHours.ReadOnly = true;
+            // 
+            // clmEdit
+            // 
+            this.clmEdit.HeaderText = " ";
+            this.clmEdit.MinimumWidth = 6;
+            this.clmEdit.Name = "clmEdit";
+            this.clmEdit.ReadOnly = true;
+            this.clmEdit.Text = "редактирай";
+            this.clmEdit.UseColumnTextForButtonValue = true;
+            // 
+            // clmDelete
+            // 
+            this.clmDelete.HeaderText = "  ";
+            this.clmDelete.MinimumWidth = 6;
+            this.clmDelete.Name = "clmDelete";
+            this.clmDelete.ReadOnly = true;
+            this.clmDelete.Text = "изтрий";
+            this.clmDelete.UseColumnTextForButtonValue = true;
             // 
             // label1
             // 
@@ -194,56 +245,6 @@ namespace TimeTable.UI
             this.btnAddTime.UseVisualStyleBackColor = true;
             this.btnAddTime.Click += new System.EventHandler(this.btnAddTime_Click);
             // 
-            // clmDate
-            // 
-            this.clmDate.DataPropertyName = "Date";
-            this.clmDate.HeaderText = "Дата";
-            this.clmDate.MinimumWidth = 6;
-            this.clmDate.Name = "clmDate";
-            this.clmDate.ReadOnly = true;
-            // 
-            // clmProject
-            // 
-            this.clmProject.DataPropertyName = "Project";
-            this.clmProject.HeaderText = "Проект";
-            this.clmProject.MinimumWidth = 6;
-            this.clmProject.Name = "clmProject";
-            this.clmProject.ReadOnly = true;
-            // 
-            // clmTask
-            // 
-            this.clmTask.DataPropertyName = "Task";
-            this.clmTask.HeaderText = "Описание на дейността";
-            this.clmTask.MinimumWidth = 6;
-            this.clmTask.Name = "clmTask";
-            this.clmTask.ReadOnly = true;
-            // 
-            // clmHours
-            // 
-            this.clmHours.DataPropertyName = "Hours";
-            this.clmHours.HeaderText = "Часове";
-            this.clmHours.MinimumWidth = 6;
-            this.clmHours.Name = "clmHours";
-            this.clmHours.ReadOnly = true;
-            // 
-            // clmEdit
-            // 
-            this.clmEdit.HeaderText = " ";
-            this.clmEdit.MinimumWidth = 6;
-            this.clmEdit.Name = "clmEdit";
-            this.clmEdit.ReadOnly = true;
-            this.clmEdit.Text = "редактирай";
-            this.clmEdit.UseColumnTextForButtonValue = true;
-            // 
-            // clmDelete
-            // 
-            this.clmDelete.HeaderText = "  ";
-            this.clmDelete.MinimumWidth = 6;
-            this.clmDelete.Name = "clmDelete";
-            this.clmDelete.ReadOnly = true;
-            this.clmDelete.Text = "изтрий";
-            this.clmDelete.UseColumnTextForButtonValue = true;
-            // 
             // EmployeeTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -251,6 +252,7 @@ namespace TimeTable.UI
             this.ClientSize = new System.Drawing.Size(1156, 751);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EmployeeTime";

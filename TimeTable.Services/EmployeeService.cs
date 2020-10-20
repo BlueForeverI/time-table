@@ -15,11 +15,11 @@ namespace TimeTable.Services
             return _context.ProjectHours
                 .Where(ph => ph.EmployeeId == employeeId)
                 .Include(ph => ph.Project)
-                .GroupBy(ph => ph.Project.ProjectName)
+                .GroupBy(ph => ph.Project.Name)
                 .Select(group => new EmployeeProjectTimeViewModel()
                 {
                     ProjectName = group.Key,
-                    Hours = group.Sum(ph => ph.ProjectHours1)
+                    Hours = group.Sum(ph => ph.Hours)
                 })
                 .ToList();
         }
@@ -29,12 +29,12 @@ namespace TimeTable.Services
             return _context.ProjectHours
                 .Where(ph => ph.EmployeeId == employeeId)
                 .Include(ph => ph.ProjectMonth)
-                .GroupBy(ph => new { ph.ProjectMonth.ProjectMonth, ph.ProjectMonth.ProjectYear })
+                .GroupBy(ph => new { ph.ProjectMonth.Month, ph.ProjectMonth.Year })
                 .Select(group => new EmployeeMonthTimeViewModel()
                 {
-                    ProjectMonth = group.Key.ProjectMonth,
-                    ProjectYear = group.Key.ProjectYear,
-                    Hours = group.Sum(ph => ph.ProjectHours1)
+                    ProjectMonth = group.Key.Month,
+                    ProjectYear = group.Key.Year,
+                    Hours = group.Sum(ph => ph.Hours)
                 })
                 .ToList();
         }
@@ -48,10 +48,10 @@ namespace TimeTable.Services
                 {
                     EmployeeId = employeeId,
                     ProjectId = ph.ProjectId,
-                    Date = ph.ProjectTaskdate,
-                    Project = ph.Project.ProjectName,
-                    Task = ph.ProjectTask,
-                    Hours = ph.ProjectHours1
+                    Date = ph.TaskDate,
+                    Project = ph.Project.Name,
+                    Task = ph.Task,
+                    Hours = ph.Hours
                 })
                 .ToList();
         }

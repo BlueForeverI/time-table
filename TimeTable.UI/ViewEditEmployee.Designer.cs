@@ -225,6 +225,7 @@ namespace TimeTable.UI
             this.clmMonthHours});
             this.dataGridEmployeeMonth.Location = new System.Drawing.Point(450, 60);
             this.dataGridEmployeeMonth.Name = "dataGridEmployeeMonth";
+            this.dataGridEmployeeMonth.RowHeadersVisible = false;
             this.dataGridEmployeeMonth.RowHeadersWidth = 51;
             this.dataGridEmployeeMonth.RowTemplate.Height = 29;
             this.dataGridEmployeeMonth.Size = new System.Drawing.Size(427, 269);
@@ -274,6 +275,7 @@ namespace TimeTable.UI
             this.clmProjectHours});
             this.dataGridProjectTime.Location = new System.Drawing.Point(7, 60);
             this.dataGridProjectTime.Name = "dataGridProjectTime";
+            this.dataGridProjectTime.RowHeadersVisible = false;
             this.dataGridProjectTime.RowHeadersWidth = 51;
             this.dataGridProjectTime.RowTemplate.Height = 29;
             this.dataGridProjectTime.Size = new System.Drawing.Size(420, 269);
@@ -281,7 +283,7 @@ namespace TimeTable.UI
             // 
             // clmProject
             // 
-            this.clmProject.DataPropertyName = "ProjectName";
+            this.clmProject.DataPropertyName = "Name";
             this.clmProject.HeaderText = "Проект";
             this.clmProject.MinimumWidth = 6;
             this.clmProject.Name = "clmProject";
@@ -313,6 +315,7 @@ namespace TimeTable.UI
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewEditEmployee";

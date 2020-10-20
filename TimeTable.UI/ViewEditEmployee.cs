@@ -22,12 +22,12 @@ namespace TimeTable.UI
             _employeeService = new EmployeeService();
 
             _employee = employee;
-            txtEgn.Text = employee.EmployeeEgn;
-            txtName.Text = employee.EmployeeName;
-            txtSurname.Text = employee.EmployeeSurname;
-            txtFamilyName.Text = employee.EmployeeLastname;
-            cmbPosition.Text = employee.EmployeePosition;
-            dpHireDate.Value = (DateTime) employee.EmployeeHiredate;
+            txtEgn.Text = employee.Egn;
+            txtName.Text = employee.Name;
+            txtSurname.Text = employee.Surname;
+            txtFamilyName.Text = employee.Lastname;
+            cmbPosition.Text = employee.Position;
+            dpHireDate.Value = (DateTime) employee.HireDate;
 
             _projectHours = _employeeService.GetEmployeeProjectHours(employee.EmployeeId);
             dataGridProjectTime.DataSource = _projectHours;
@@ -48,12 +48,12 @@ namespace TimeTable.UI
         {
             if (ValidateEmployee())
             {
-                _employee.EmployeeEgn = txtEgn.Text;
-                _employee.EmployeeName = txtName.Text;
-                _employee.EmployeeSurname = txtSurname.Text;
-                _employee.EmployeeLastname = txtFamilyName.Text;
-                _employee.EmployeePosition = cmbPosition.Text;
-                _employee.EmployeeHiredate = dpHireDate.Value;
+                _employee.Egn = txtEgn.Text;
+                _employee.Name = txtName.Text;
+                _employee.Surname = txtSurname.Text;
+                _employee.Lastname = txtFamilyName.Text;
+                _employee.Position = cmbPosition.Text;
+                _employee.HireDate = dpHireDate.Value;
                 _employeeService.Update(_employee);
                 DialogResult = DialogResult.OK;
                 Close();

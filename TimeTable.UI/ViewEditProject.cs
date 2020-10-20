@@ -26,13 +26,13 @@ namespace TimeTable.UI
             gridViewProjectMonths.AutoGenerateColumns = false;
 
             _project = project;
-            txtProjectName.Text = project.ProjectName;
-            txtProjectDescription.Text = project.ProjectDescription;
-            dpStart.Value = project.ProjectBegin;
-            dpEnd.Value = project.ProjectEnd;
-            npMaxHours.Value = (decimal) project.ProjectMaxhours;
+            txtProjectName.Text = project.Name;
+            txtProjectDescription.Text = project.Description;
+            dpStart.Value = project.Begin;
+            dpEnd.Value = project.End;
+            npMaxHours.Value = (decimal) project.MaxHours;
 
-            if (project.ProjectStatus == "C")
+            if (project.Status == "C")
             {
                 txtProjectName.ReadOnly = true;
                 txtProjectName.Enabled = false;
@@ -54,17 +54,17 @@ namespace TimeTable.UI
         {
             if (ValidateProject())
             {
-                _project.ProjectName = txtProjectName.Text;
-                _project.ProjectDescription = txtProjectDescription.Text;
-                _project.ProjectBegin = dpStart.Value;
-                _project.ProjectEnd = dpEnd.Value;
-                _project.ProjectMaxhours = npMaxHours.Value;
+                _project.Name = txtProjectName.Text;
+                _project.Description = txtProjectDescription.Text;
+                _project.Begin = dpStart.Value;
+                _project.End = dpEnd.Value;
+                _project.MaxHours = npMaxHours.Value;
                 if ((cmbStatus.Text == "Приключен" &&
                     MessageBox.Show("Сигурни ли сте, че искате да приключите този проект? Действието е необратимо!", "Потвърждение", 
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     || cmbStatus.Text == "Неприключен")
                 {
-                    _project.ProjectStatus = cmbStatus.Text == "Неприключен" ? "O" : "C";
+                    _project.Status = cmbStatus.Text == "Неприключен" ? "O" : "C";
                     _projectService.Update(_project);
                     DialogResult = DialogResult.OK;
                     Close();
@@ -117,12 +117,12 @@ namespace TimeTable.UI
                 }
                 else
                 {
-                    ProjectMonths pm = new ProjectMonths();
+                    ProjectMonth pm = new ProjectMonth();
                     pm.ProjectId = pmvm.ProjectId;
                     pm.ProjectMonthId = pmvm.ProjectMonthId;
-                    pm.ProjectMonth = pmvm.ProjectMonth;
-                    pm.ProjectYear = pmvm.ProjectYear;
-                    pm.ProjectMonthStatus = "C";
+                    pm.Month = pmvm.ProjectMonth;
+                    pm.Year = pmvm.ProjectYear;
+                    pm.Status = "C";
                     _projectMonthService.Update(pm);
                     ReloadProjectMonths();
                 }
@@ -144,11 +144,11 @@ namespace TimeTable.UI
             }
             else
             {
-                ProjectMonths pm = new ProjectMonths();
+                ProjectMonth pm = new ProjectMonth();
                 pm.ProjectId = _project.ProjectId;
-                pm.ProjectMonth = npPmMonth.Value;
-                pm.ProjectYear = npPmYear.Value;
-                pm.ProjectMonthStatus = "O";
+                pm.Month = npPmMonth.Value;
+                pm.Year = npPmYear.Value;
+                pm.Status = "O";
                 _projectMonthService.Add(pm);
                 ReloadProjectMonths();
             }

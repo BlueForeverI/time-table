@@ -11,12 +11,12 @@ namespace TimeTable.Data.Models
         }
 
         public decimal EmployeeId { get; set; }
-        public string EmployeeEgn { get; set; }
-        public string EmployeeName { get; set; }
-        public string EmployeeSurname { get; set; }
-        public string EmployeeLastname { get; set; }
-        public string EmployeePosition { get; set; }
-        public DateTime? EmployeeHiredate { get; set; }
+        public string Egn { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Lastname { get; set; }
+        public string Position { get; set; }
+        public DateTime? HireDate { get; set; }
 
         public virtual ICollection<ProjectHours> ProjectHours { get; set; }
     }

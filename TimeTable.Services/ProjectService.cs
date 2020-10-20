@@ -16,10 +16,10 @@ namespace TimeTable.Services
             {
                 ProjectId = pm.ProjectId,
                 ProjectMonthId = pm.ProjectMonthId,
-                ProjectMonth = pm.ProjectMonth,
-                ProjectYear = pm.ProjectYear,
-                ProjectMonthStatus = pm.ProjectMonthStatus,
-                HourSum = pm.ProjectHours.Sum(ph => ph.ProjectHours1),
+                ProjectMonth = pm.Month,
+                ProjectYear = pm.Year,
+                ProjectMonthStatus = pm.Status,
+                HourSum = pm.ProjectHours.Sum(ph => ph.Hours),
                 EmployeeCount = pm.ProjectHours.Select(ph => ph.EmployeeId).Distinct().Count()
             }).ToList();
         }

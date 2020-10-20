@@ -46,17 +46,17 @@ namespace TimeTable.UI
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gridViewProjectMonths = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.npPmMonth = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.npPmYear = new System.Windows.Forms.NumericUpDown();
-            this.btnAddProjectMonth = new System.Windows.Forms.Button();
             this.clmPmMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPmYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPmStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEmployees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPmFinish = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.npPmMonth = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.npPmYear = new System.Windows.Forms.NumericUpDown();
+            this.btnAddProjectMonth = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.npMaxHours)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -237,11 +237,61 @@ namespace TimeTable.UI
             this.clmPmFinish});
             this.gridViewProjectMonths.Location = new System.Drawing.Point(3, 23);
             this.gridViewProjectMonths.Name = "gridViewProjectMonths";
+            this.gridViewProjectMonths.RowHeadersVisible = false;
             this.gridViewProjectMonths.RowHeadersWidth = 51;
             this.gridViewProjectMonths.RowTemplate.Height = 29;
             this.gridViewProjectMonths.Size = new System.Drawing.Size(759, 361);
             this.gridViewProjectMonths.TabIndex = 0;
             this.gridViewProjectMonths.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewProjectMonths_CellContentClick);
+            // 
+            // clmPmMonth
+            // 
+            this.clmPmMonth.DataPropertyName = "ProjectMonth";
+            this.clmPmMonth.HeaderText = "Месец";
+            this.clmPmMonth.MinimumWidth = 6;
+            this.clmPmMonth.Name = "clmPmMonth";
+            this.clmPmMonth.ReadOnly = true;
+            // 
+            // clmPmYear
+            // 
+            this.clmPmYear.DataPropertyName = "ProjectYear";
+            this.clmPmYear.HeaderText = "Година";
+            this.clmPmYear.MinimumWidth = 6;
+            this.clmPmYear.Name = "clmPmYear";
+            this.clmPmYear.ReadOnly = true;
+            // 
+            // clmPmStatus
+            // 
+            this.clmPmStatus.DataPropertyName = "FullStatus";
+            this.clmPmStatus.HeaderText = "Статус";
+            this.clmPmStatus.MinimumWidth = 6;
+            this.clmPmStatus.Name = "clmPmStatus";
+            this.clmPmStatus.ReadOnly = true;
+            // 
+            // clmEmployees
+            // 
+            this.clmEmployees.DataPropertyName = "EmployeeCount";
+            this.clmEmployees.HeaderText = "Брой служители";
+            this.clmEmployees.MinimumWidth = 6;
+            this.clmEmployees.Name = "clmEmployees";
+            this.clmEmployees.ReadOnly = true;
+            // 
+            // clmHours
+            // 
+            this.clmHours.DataPropertyName = "HourSum";
+            this.clmHours.HeaderText = "Общо часове";
+            this.clmHours.MinimumWidth = 6;
+            this.clmHours.Name = "clmHours";
+            this.clmHours.ReadOnly = true;
+            // 
+            // clmPmFinish
+            // 
+            this.clmPmFinish.HeaderText = " ";
+            this.clmPmFinish.MinimumWidth = 6;
+            this.clmPmFinish.Name = "clmPmFinish";
+            this.clmPmFinish.ReadOnly = true;
+            this.clmPmFinish.Text = "приключи";
+            this.clmPmFinish.UseColumnTextForButtonValue = true;
             // 
             // label7
             // 
@@ -315,55 +365,6 @@ namespace TimeTable.UI
             this.btnAddProjectMonth.UseVisualStyleBackColor = true;
             this.btnAddProjectMonth.Click += new System.EventHandler(this.btnAddProjectMonth_Click);
             // 
-            // clmPmMonth
-            // 
-            this.clmPmMonth.DataPropertyName = "ProjectMonth";
-            this.clmPmMonth.HeaderText = "Месец";
-            this.clmPmMonth.MinimumWidth = 6;
-            this.clmPmMonth.Name = "clmPmMonth";
-            this.clmPmMonth.ReadOnly = true;
-            // 
-            // clmPmYear
-            // 
-            this.clmPmYear.DataPropertyName = "ProjectYear";
-            this.clmPmYear.HeaderText = "Година";
-            this.clmPmYear.MinimumWidth = 6;
-            this.clmPmYear.Name = "clmPmYear";
-            this.clmPmYear.ReadOnly = true;
-            // 
-            // clmPmStatus
-            // 
-            this.clmPmStatus.DataPropertyName = "FullStatus";
-            this.clmPmStatus.HeaderText = "Статус";
-            this.clmPmStatus.MinimumWidth = 6;
-            this.clmPmStatus.Name = "clmPmStatus";
-            this.clmPmStatus.ReadOnly = true;
-            // 
-            // clmEmployees
-            // 
-            this.clmEmployees.DataPropertyName = "EmployeeCount";
-            this.clmEmployees.HeaderText = "Брой служители";
-            this.clmEmployees.MinimumWidth = 6;
-            this.clmEmployees.Name = "clmEmployees";
-            this.clmEmployees.ReadOnly = true;
-            // 
-            // clmHours
-            // 
-            this.clmHours.DataPropertyName = "HourSum";
-            this.clmHours.HeaderText = "Общо часове";
-            this.clmHours.MinimumWidth = 6;
-            this.clmHours.Name = "clmHours";
-            this.clmHours.ReadOnly = true;
-            // 
-            // clmPmFinish
-            // 
-            this.clmPmFinish.HeaderText = " ";
-            this.clmPmFinish.MinimumWidth = 6;
-            this.clmPmFinish.Name = "clmPmFinish";
-            this.clmPmFinish.ReadOnly = true;
-            this.clmPmFinish.Text = "приключи";
-            this.clmPmFinish.UseColumnTextForButtonValue = true;
-            // 
             // ViewEditProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -378,6 +379,7 @@ namespace TimeTable.UI
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewEditProject";

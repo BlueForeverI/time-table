@@ -30,12 +30,12 @@ namespace TimeTable.UI
             if (ValidateProject())
             {
                 Project project = new Project();
-                project.ProjectName = txtProjectName.Text;
-                project.ProjectDescription = txtProjectDescription.Text;
-                project.ProjectBegin = dpStart.Value;
-                project.ProjectEnd = dpEnd.Value;
-                project.ProjectMaxhours = npMaxHours.Value;
-                project.ProjectStatus = "O";
+                project.Name = txtProjectName.Text;
+                project.Description = txtProjectDescription.Text;
+                project.Begin = dpStart.Value;
+                project.End = dpEnd.Value;
+                project.MaxHours = npMaxHours.Value;
+                project.Status = "O";
                 _projectService.Add(project);
                 this.DialogResult = DialogResult.OK;
                 Close();

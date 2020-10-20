@@ -128,6 +128,9 @@ namespace TimeTable.UI
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EditEmployeeTime";
             this.Text = "Редактиране на отработено време";
             this.groupBox1.ResumeLayout(false);

@@ -37,6 +37,15 @@ namespace TimeTable.UI
             this.txtSearchEmployee = new System.Windows.Forms.TextBox();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.dataGridEmployees = new System.Windows.Forms.DataGridView();
+            this.clmEmployeeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEgn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmHireData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmActions = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmEmployeeTime = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnClearProjectSearch = new System.Windows.Forms.Button();
             this.btnSearchProject = new System.Windows.Forms.Button();
@@ -52,15 +61,6 @@ namespace TimeTable.UI
             this.clmProjectStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectActions = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtSearchProject = new System.Windows.Forms.TextBox();
-            this.clmEmployeeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEgn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmHireData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmActions = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmEmployeeTime = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
@@ -159,10 +159,85 @@ namespace TimeTable.UI
             this.clmEmployeeTime});
             this.dataGridEmployees.Location = new System.Drawing.Point(3, 96);
             this.dataGridEmployees.Name = "dataGridEmployees";
+            this.dataGridEmployees.RowHeadersVisible = false;
             this.dataGridEmployees.RowHeadersWidth = 51;
             this.dataGridEmployees.Size = new System.Drawing.Size(1298, 469);
             this.dataGridEmployees.TabIndex = 0;
             this.dataGridEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployees_CellContentClick);
+            // 
+            // clmEmployeeId
+            // 
+            this.clmEmployeeId.DataPropertyName = "EmployeeId";
+            this.clmEmployeeId.HeaderText = "ID";
+            this.clmEmployeeId.MinimumWidth = 6;
+            this.clmEmployeeId.Name = "clmEmployeeId";
+            this.clmEmployeeId.ReadOnly = true;
+            // 
+            // clmEgn
+            // 
+            this.clmEgn.DataPropertyName = "Egn";
+            this.clmEgn.HeaderText = "ЕГН";
+            this.clmEgn.MinimumWidth = 6;
+            this.clmEgn.Name = "clmEgn";
+            this.clmEgn.ReadOnly = true;
+            // 
+            // clmName
+            // 
+            this.clmName.DataPropertyName = "Name";
+            this.clmName.HeaderText = "Име";
+            this.clmName.MinimumWidth = 6;
+            this.clmName.Name = "clmName";
+            this.clmName.ReadOnly = true;
+            // 
+            // clmSurname
+            // 
+            this.clmSurname.DataPropertyName = "Surname";
+            this.clmSurname.HeaderText = "Презиме";
+            this.clmSurname.MinimumWidth = 6;
+            this.clmSurname.Name = "clmSurname";
+            this.clmSurname.ReadOnly = true;
+            // 
+            // clmFamilyName
+            // 
+            this.clmFamilyName.DataPropertyName = "Lastname";
+            this.clmFamilyName.HeaderText = "Фамилия";
+            this.clmFamilyName.MinimumWidth = 6;
+            this.clmFamilyName.Name = "clmFamilyName";
+            this.clmFamilyName.ReadOnly = true;
+            // 
+            // clmPosition
+            // 
+            this.clmPosition.DataPropertyName = "Position";
+            this.clmPosition.HeaderText = "Длъжност";
+            this.clmPosition.MinimumWidth = 6;
+            this.clmPosition.Name = "clmPosition";
+            this.clmPosition.ReadOnly = true;
+            // 
+            // clmHireData
+            // 
+            this.clmHireData.DataPropertyName = "HireDate";
+            this.clmHireData.HeaderText = "Дата на постъпване";
+            this.clmHireData.MinimumWidth = 6;
+            this.clmHireData.Name = "clmHireData";
+            this.clmHireData.ReadOnly = true;
+            // 
+            // clmActions
+            // 
+            this.clmActions.HeaderText = "";
+            this.clmActions.MinimumWidth = 6;
+            this.clmActions.Name = "clmActions";
+            this.clmActions.ReadOnly = true;
+            this.clmActions.Text = "   преглед/редакция   ";
+            this.clmActions.UseColumnTextForButtonValue = true;
+            // 
+            // clmEmployeeTime
+            // 
+            this.clmEmployeeTime.HeaderText = " ";
+            this.clmEmployeeTime.MinimumWidth = 6;
+            this.clmEmployeeTime.Name = "clmEmployeeTime";
+            this.clmEmployeeTime.ReadOnly = true;
+            this.clmEmployeeTime.Text = "време";
+            this.clmEmployeeTime.UseColumnTextForButtonValue = true;
             // 
             // tabPage2
             // 
@@ -244,6 +319,7 @@ namespace TimeTable.UI
             this.dataGridProjects.Location = new System.Drawing.Point(3, 96);
             this.dataGridProjects.Name = "dataGridProjects";
             this.dataGridProjects.ReadOnly = true;
+            this.dataGridProjects.RowHeadersVisible = false;
             this.dataGridProjects.RowHeadersWidth = 51;
             this.dataGridProjects.Size = new System.Drawing.Size(1298, 469);
             this.dataGridProjects.TabIndex = 0;
@@ -259,7 +335,7 @@ namespace TimeTable.UI
             // 
             // clmProjectname
             // 
-            this.clmProjectname.DataPropertyName = "ProjectName";
+            this.clmProjectname.DataPropertyName = "Name";
             this.clmProjectname.HeaderText = "Име";
             this.clmProjectname.MinimumWidth = 6;
             this.clmProjectname.Name = "clmProjectname";
@@ -267,7 +343,7 @@ namespace TimeTable.UI
             // 
             // clmProjectStart
             // 
-            this.clmProjectStart.DataPropertyName = "ProjectBegin";
+            this.clmProjectStart.DataPropertyName = "Begin";
             this.clmProjectStart.HeaderText = "Начало";
             this.clmProjectStart.MinimumWidth = 6;
             this.clmProjectStart.Name = "clmProjectStart";
@@ -275,7 +351,7 @@ namespace TimeTable.UI
             // 
             // clmProjectEnd
             // 
-            this.clmProjectEnd.DataPropertyName = "ProjectEnd";
+            this.clmProjectEnd.DataPropertyName = "End";
             this.clmProjectEnd.HeaderText = "Край";
             this.clmProjectEnd.MinimumWidth = 6;
             this.clmProjectEnd.Name = "clmProjectEnd";
@@ -283,7 +359,7 @@ namespace TimeTable.UI
             // 
             // clmProjectDescription
             // 
-            this.clmProjectDescription.DataPropertyName = "ProjectDescription";
+            this.clmProjectDescription.DataPropertyName = "Description";
             this.clmProjectDescription.HeaderText = "Описание";
             this.clmProjectDescription.MinimumWidth = 6;
             this.clmProjectDescription.Name = "clmProjectDescription";
@@ -314,86 +390,14 @@ namespace TimeTable.UI
             this.txtSearchProject.Size = new System.Drawing.Size(295, 27);
             this.txtSearchProject.TabIndex = 2;
             // 
-            // clmEmployeeId
-            // 
-            this.clmEmployeeId.DataPropertyName = "EmployeeId";
-            this.clmEmployeeId.HeaderText = "ID";
-            this.clmEmployeeId.MinimumWidth = 6;
-            this.clmEmployeeId.Name = "clmEmployeeId";
-            this.clmEmployeeId.ReadOnly = true;
-            // 
-            // clmEgn
-            // 
-            this.clmEgn.DataPropertyName = "EmployeeEgn";
-            this.clmEgn.HeaderText = "ЕГН";
-            this.clmEgn.MinimumWidth = 6;
-            this.clmEgn.Name = "clmEgn";
-            this.clmEgn.ReadOnly = true;
-            // 
-            // clmName
-            // 
-            this.clmName.DataPropertyName = "EmployeeName";
-            this.clmName.HeaderText = "Име";
-            this.clmName.MinimumWidth = 6;
-            this.clmName.Name = "clmName";
-            this.clmName.ReadOnly = true;
-            // 
-            // clmSurname
-            // 
-            this.clmSurname.DataPropertyName = "EmployeeSurname";
-            this.clmSurname.HeaderText = "Презиме";
-            this.clmSurname.MinimumWidth = 6;
-            this.clmSurname.Name = "clmSurname";
-            this.clmSurname.ReadOnly = true;
-            // 
-            // clmFamilyName
-            // 
-            this.clmFamilyName.DataPropertyName = "EmployeeLastname";
-            this.clmFamilyName.HeaderText = "Фамилия";
-            this.clmFamilyName.MinimumWidth = 6;
-            this.clmFamilyName.Name = "clmFamilyName";
-            this.clmFamilyName.ReadOnly = true;
-            // 
-            // clmPosition
-            // 
-            this.clmPosition.DataPropertyName = "EmployeePosition";
-            this.clmPosition.HeaderText = "Длъжност";
-            this.clmPosition.MinimumWidth = 6;
-            this.clmPosition.Name = "clmPosition";
-            this.clmPosition.ReadOnly = true;
-            // 
-            // clmHireData
-            // 
-            this.clmHireData.DataPropertyName = "EmployeeHiredate";
-            this.clmHireData.HeaderText = "Дата на постъпване";
-            this.clmHireData.MinimumWidth = 6;
-            this.clmHireData.Name = "clmHireData";
-            this.clmHireData.ReadOnly = true;
-            // 
-            // clmActions
-            // 
-            this.clmActions.HeaderText = "";
-            this.clmActions.MinimumWidth = 6;
-            this.clmActions.Name = "clmActions";
-            this.clmActions.ReadOnly = true;
-            this.clmActions.Text = "   преглед/редакция   ";
-            this.clmActions.UseColumnTextForButtonValue = true;
-            // 
-            // clmEmployeeTime
-            // 
-            this.clmEmployeeTime.HeaderText = " ";
-            this.clmEmployeeTime.MinimumWidth = 6;
-            this.clmEmployeeTime.Name = "clmEmployeeTime";
-            this.clmEmployeeTime.ReadOnly = true;
-            this.clmEmployeeTime.Text = "време";
-            this.clmEmployeeTime.UseColumnTextForButtonValue = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 661);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Main";
             this.Text = "Отчитане на отработено време";
             this.tabControl1.ResumeLayout(false);
@@ -425,13 +429,6 @@ namespace TimeTable.UI
         private System.Windows.Forms.ComboBox cmbSearchProjectType;
         private System.Windows.Forms.TextBox txtSearchProjectt;
         private System.Windows.Forms.TextBox txtSearchProject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectEnd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStatus;
-        private System.Windows.Forms.DataGridViewButtonColumn clmProjectActions;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEmployeeId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEgn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
@@ -441,5 +438,12 @@ namespace TimeTable.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn clmHireData;
         private System.Windows.Forms.DataGridViewButtonColumn clmActions;
         private System.Windows.Forms.DataGridViewButtonColumn clmEmployeeTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectEnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn clmProjectActions;
     }
 }

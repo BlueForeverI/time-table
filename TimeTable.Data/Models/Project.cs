@@ -8,25 +8,25 @@ namespace TimeTable.Data.Models
         public Project()
         {
             ProjectHours = new HashSet<ProjectHours>();
-            ProjectMonths = new HashSet<ProjectMonths>();
+            ProjectMonths = new HashSet<ProjectMonth>();
         }
 
         public decimal ProjectId { get; set; }
-        public string ProjectName { get; set; }
-        public DateTime ProjectBegin { get; set; }
-        public DateTime ProjectEnd { get; set; }
-        public string ProjectDescription { get; set; }
-        public string ProjectStatus { get; set; }
-        public decimal? ProjectMaxhours { get; set; }
+        public string Name { get; set; }
+        public DateTime Begin { get; set; }
+        public DateTime End { get; set; }
+        public string Description { get; set; }
+        public string Status { get; set; }
+        public decimal? MaxHours { get; set; }
 
         public virtual ICollection<ProjectHours> ProjectHours { get; set; }
-        public virtual ICollection<ProjectMonths> ProjectMonths { get; set; }
+        public virtual ICollection<ProjectMonth> ProjectMonths { get; set; }
 
         public string FullStatus
         {
             get
             {
-                return ProjectStatus == "O" ? "Неприключен" : "Приключен";
+                return Status == "O" ? "Неприключен" : "Приключен";
             }
         }
     }

@@ -15,9 +15,8 @@ namespace TimeTable
         {
             if (this.txtUsername.Text == "admin" && this.txtPassword.Text == "admin")
             {
-                var mainWindow = new Main();
-                mainWindow.Show();
-                this.Hide();
+                DialogResult = DialogResult.Yes;
+                Close();
             }
             else
             {

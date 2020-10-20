@@ -16,20 +16,27 @@ namespace TimeTable.UI
 
         public Main()
         {
-            InitializeComponent();
-            _employeeService = new EmployeeService();
-            _projectService = new ProjectService();
-            tabPage1.Enter += tabPage1_Click;
-            tabPage2.Enter += tabPage2_Click;
+            if (new Login().ShowDialog() == DialogResult.Yes)
+            {
+                InitializeComponent();
+                _employeeService = new EmployeeService();
+                _projectService = new ProjectService();
+                tabPage1.Enter += tabPage1_Click;
+                tabPage2.Enter += tabPage2_Click;
 
-            dataGridEmployees.AutoGenerateColumns = false;
-            dataGridProjects.AutoGenerateColumns = false;
+                dataGridEmployees.AutoGenerateColumns = false;
+                dataGridProjects.AutoGenerateColumns = false;
 
-            cmbSearchEmployeeType.Items.AddRange(new string[] { "ЕГН", "Име", "Презиме", "Фамилия", "Длъжност", "Дата на постъпване" });
-            cmbSearchEmployeeType.Text = "ЕГН";
+                cmbSearchEmployeeType.Items.AddRange(new string[] { "ЕГН", "Име", "Презиме", "Фамилия", "Длъжност", "Дата на постъпване" });
+                cmbSearchEmployeeType.Text = "ЕГН";
 
-            cmbSearchProjectType.Items.AddRange(new string[] { "Име", "Начало", "Край", "Описание", "Статус" });
-            cmbSearchProjectType.Text = "Име";
+                cmbSearchProjectType.Items.AddRange(new string[] { "Име", "Начало", "Край", "Описание", "Статус" });
+                cmbSearchProjectType.Text = "Име";
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private void tabPage1_Click(object sender, EventArgs e)

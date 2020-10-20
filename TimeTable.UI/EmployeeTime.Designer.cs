@@ -58,7 +58,7 @@ namespace TimeTable.UI
             this.groupBox1.Controls.Add(this.dataGridEmployeeHours);
             this.groupBox1.Location = new System.Drawing.Point(12, 314);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1131, 425);
+            this.groupBox1.Size = new System.Drawing.Size(1131, 345);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Време на служител";
@@ -81,7 +81,7 @@ namespace TimeTable.UI
             this.dataGridEmployeeHours.RowHeadersVisible = false;
             this.dataGridEmployeeHours.RowHeadersWidth = 51;
             this.dataGridEmployeeHours.RowTemplate.Height = 29;
-            this.dataGridEmployeeHours.Size = new System.Drawing.Size(1118, 392);
+            this.dataGridEmployeeHours.Size = new System.Drawing.Size(1118, 307);
             this.dataGridEmployeeHours.TabIndex = 0;
             this.dataGridEmployeeHours.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployeeHours_CellContentClick);
             this.dataGridEmployeeHours.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployeeHours_CellEndEdit);
@@ -249,7 +249,7 @@ namespace TimeTable.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 751);
+            this.ClientSize = new System.Drawing.Size(1156, 667);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

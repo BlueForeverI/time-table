@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace TimeTable.Data.Models
 {
@@ -36,7 +37,7 @@ namespace TimeTable.Data.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=270a9901-1332-4b7a-875b-ac5a013171e5.sqlserver.sequelizer.com;Database=db270a990113324b7a875bac5a013171e5;User ID=kshvjbeoptwafkqd;Password=HGtiaiFTVQp4eHTk7LkZDNPhHpKehRkw72aMxmPomFdNUoBdbQcGnVM32kHTFAKe;");
+                optionsBuilder.UseSqlServer(ConfigurationManager.AppSettings["ConnectionString"]);
             }
         }
 

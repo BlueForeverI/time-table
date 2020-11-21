@@ -31,6 +31,12 @@ namespace TimeTable.UI
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dpEmployeeSearchHireDate = new System.Windows.Forms.DateTimePicker();
+            this.cmbEmployeeSerachPosition = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSearchEmployeeEgn = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblSearchSurname = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,12 +73,6 @@ namespace TimeTable.UI
             this.clmProjectView = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmProjectEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtSearchProject = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtSearchEmployeeEgn = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbEmployeeSerachPosition = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
@@ -93,7 +93,7 @@ namespace TimeTable.UI
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.dateTimePicker1);
+            this.tabPage1.Controls.Add(this.dpEmployeeSearchHireDate);
             this.tabPage1.Controls.Add(this.cmbEmployeeSerachPosition);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
@@ -116,6 +116,58 @@ namespace TimeTable.UI
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Служители";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // dpEmployeeSearchHireDate
+            // 
+            this.dpEmployeeSearchHireDate.Checked = false;
+            this.dpEmployeeSearchHireDate.Location = new System.Drawing.Point(462, 107);
+            this.dpEmployeeSearchHireDate.Name = "dpEmployeeSearchHireDate";
+            this.dpEmployeeSearchHireDate.ShowCheckBox = true;
+            this.dpEmployeeSearchHireDate.Size = new System.Drawing.Size(223, 27);
+            this.dpEmployeeSearchHireDate.TabIndex = 13;
+            // 
+            // cmbEmployeeSerachPosition
+            // 
+            this.cmbEmployeeSerachPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmployeeSerachPosition.FormattingEnabled = true;
+            this.cmbEmployeeSerachPosition.Location = new System.Drawing.Point(233, 106);
+            this.cmbEmployeeSerachPosition.Name = "cmbEmployeeSerachPosition";
+            this.cmbEmployeeSerachPosition.Size = new System.Drawing.Size(223, 28);
+            this.cmbEmployeeSerachPosition.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(462, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Дата на наемане";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(233, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Позиция";
+            // 
+            // txtSearchEmployeeEgn
+            // 
+            this.txtSearchEmployeeEgn.Location = new System.Drawing.Point(6, 107);
+            this.txtSearchEmployeeEgn.Name = "txtSearchEmployeeEgn";
+            this.txtSearchEmployeeEgn.Size = new System.Drawing.Size(221, 27);
+            this.txtSearchEmployeeEgn.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "ЕГН";
             // 
             // label2
             // 
@@ -464,56 +516,6 @@ namespace TimeTable.UI
             this.txtSearchProject.Size = new System.Drawing.Size(295, 27);
             this.txtSearchProject.TabIndex = 2;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "ЕГН";
-            // 
-            // txtSearchEmployeeEgn
-            // 
-            this.txtSearchEmployeeEgn.Location = new System.Drawing.Point(6, 107);
-            this.txtSearchEmployeeEgn.Name = "txtSearchEmployeeEgn";
-            this.txtSearchEmployeeEgn.Size = new System.Drawing.Size(221, 27);
-            this.txtSearchEmployeeEgn.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(233, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Позиция";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(462, 83);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 20);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Дата на наемане";
-            // 
-            // cmbEmployeeSerachPosition
-            // 
-            this.cmbEmployeeSerachPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEmployeeSerachPosition.FormattingEnabled = true;
-            this.cmbEmployeeSerachPosition.Location = new System.Drawing.Point(233, 106);
-            this.cmbEmployeeSerachPosition.Name = "cmbEmployeeSerachPosition";
-            this.cmbEmployeeSerachPosition.Size = new System.Drawing.Size(223, 28);
-            this.cmbEmployeeSerachPosition.TabIndex = 12;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(462, 107);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(223, 27);
-            this.dateTimePicker1.TabIndex = 13;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -580,7 +582,7 @@ namespace TimeTable.UI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSearchEmployeeEgn;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dpEmployeeSearchHireDate;
         private System.Windows.Forms.ComboBox cmbEmployeeSerachPosition;
         private System.Windows.Forms.Label label5;
     }

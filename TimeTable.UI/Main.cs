@@ -27,7 +27,7 @@ namespace TimeTable.UI
                 dataGridEmployees.AutoGenerateColumns = false;
                 dataGridProjects.AutoGenerateColumns = false;
 
-                cmbEmployeeSerachPosition.Items.AddRange(new string[] { "Стажант", "Служител", "Мениджър" });
+                cmbEmployeeSerachPosition.Items.AddRange(new string[] { "", "Стажант", "Служител", "Мениджър" });
 
                 cmbSearchProjectType.Items.AddRange(new string[] { "Име", "Начало", "Край", "Описание", "Статус" });
                 cmbSearchProjectType.Text = "Име";
@@ -84,6 +84,10 @@ namespace TimeTable.UI
             var name = txtSearchEmployeeName.Text;
             var surname = txtSearchEmployeeSurname.Text;
             var lastName = txtEmployeeSerchLastName.Text;
+            var egn = txtSearchEmployeeEgn.Text;
+            var position = cmbEmployeeSerachPosition.SelectedItem?.ToString();
+            var hireDate = dpEmployeeSearchHireDate.Checked ? (DateTime?) dpEmployeeSearchHireDate.Value : null;
+
             var query = _allEmployees.AsQueryable();
             if (!string.IsNullOrEmpty(name))
             {
@@ -100,27 +104,22 @@ namespace TimeTable.UI
                 query = query.Where(e => e.Lastname.Contains(lastName));
             }
 
+            if (!string.IsNullOrEmpty(egn))
+            {
+                query = query.Where(e => e.Egn.Contains(egn));
+            }
+
+            if (!string.IsNullOrEmpty(position))
+            {
+                query = query.Where(e => e.Position.Contains(position));
+            }
+
+            if (hireDate != null)
+            {
+                query = query.Where(e => e.HireDate.Value.Date == hireDate.Value.Date);
+            }
+
             dataGridEmployees.DataSource = query.ToList();
-            //switch(cmbSearchEmployeeType.Text)
-            //{
-            //    case "ЕГН":
-            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Egn.Contains(query)).ToList();
-            //        break;
-            //    case "Име":
-            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Name.Contains(query)).ToList();
-            //        break;
-            //    case "Презиме":
-            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Surname.Contains(query)).ToList();
-            //        break;
-            //    case "Фамилия":
-            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Lastname.Contains(query)).ToList();
-            //        break;
-            //    case "Длъжност":
-            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Position.Contains(query)).ToList();
-            //        break;
-            //    case "Дата на постъпване":
-            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.HireDate.ToString().Contains(query)).ToList();
-            //        break;
         }
 
         private void btnClearEmployeeSearch_Click(object sender, EventArgs e)
@@ -128,6 +127,10 @@ namespace TimeTable.UI
             txtSearchEmployeeName.Text = "";
             txtSearchEmployeeSurname.Text = "";
             txtEmployeeSerchLastName.Text = "";
+            txtSearchEmployeeEgn.Text = "";
+            cmbEmployeeSerachPosition.SelectedItem = "";
+            dpEmployeeSearchHireDate.Value = new DateTime();
+            dpEmployeeSearchHireDate.Checked = false;
             dataGridEmployees.DataSource = _allEmployees;
         }
 

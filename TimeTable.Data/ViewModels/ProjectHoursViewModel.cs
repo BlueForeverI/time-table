@@ -10,5 +10,15 @@ namespace TimeTable.Data.ViewModels
         public string Project { get; set; }
         public string Task { get; set; }
         public decimal Hours { get; set; }
+
+        public int DateYear
+        {
+            get => Date.Year;
+        }
+
+        public int DateMonth
+        {
+            get => Date.Month;
+        }
     }
 }

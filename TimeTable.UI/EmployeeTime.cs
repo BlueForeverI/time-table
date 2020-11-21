@@ -100,7 +100,7 @@ namespace TimeTable.UI
             if (dataGridEmployeeHours.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
                 var entry = _employeeHours[e.RowIndex];
-                if (e.ColumnIndex == 4)
+                if (e.ColumnIndex == 5)
                 {
                     if (new EditEmployeeTime(entry).ShowDialog() == DialogResult.OK)
                     {

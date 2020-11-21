@@ -31,10 +31,14 @@ namespace TimeTable.UI
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblSearchSurname = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnClearEmployeeSearch = new System.Windows.Forms.Button();
             this.btnSearchEmployee = new System.Windows.Forms.Button();
-            this.cmbSearchEmployeeType = new System.Windows.Forms.ComboBox();
-            this.txtSearchEmployee = new System.Windows.Forms.TextBox();
+            this.txtEmployeeSerchLastName = new System.Windows.Forms.TextBox();
+            this.txtSearchEmployeeSurname = new System.Windows.Forms.TextBox();
+            this.txtSearchEmployeeName = new System.Windows.Forms.TextBox();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.dataGridEmployees = new System.Windows.Forms.DataGridView();
             this.clmEmployeeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +58,6 @@ namespace TimeTable.UI
             this.txtSearchProjectt = new System.Windows.Forms.TextBox();
             this.btnAddProject = new System.Windows.Forms.Button();
             this.dataGridProjects = new System.Windows.Forms.DataGridView();
-            this.txtSearchProject = new System.Windows.Forms.TextBox();
             this.clmProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +66,13 @@ namespace TimeTable.UI
             this.clmProjectStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectView = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmProjectEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtSearchProject = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSearchEmployeeEgn = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbEmployeeSerachPosition = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
@@ -83,10 +93,20 @@ namespace TimeTable.UI
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.dateTimePicker1);
+            this.tabPage1.Controls.Add(this.cmbEmployeeSerachPosition);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.txtSearchEmployeeEgn);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.lblSearchSurname);
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.btnClearEmployeeSearch);
             this.tabPage1.Controls.Add(this.btnSearchEmployee);
-            this.tabPage1.Controls.Add(this.cmbSearchEmployeeType);
-            this.tabPage1.Controls.Add(this.txtSearchEmployee);
+            this.tabPage1.Controls.Add(this.txtEmployeeSerchLastName);
+            this.tabPage1.Controls.Add(this.txtSearchEmployeeSurname);
+            this.tabPage1.Controls.Add(this.txtSearchEmployeeName);
             this.tabPage1.Controls.Add(this.btnAddEmployee);
             this.tabPage1.Controls.Add(this.dataGridEmployees);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
@@ -97,9 +117,36 @@ namespace TimeTable.UI
             this.tabPage1.Text = "Служители";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(462, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Фамилия";
+            // 
+            // lblSearchSurname
+            // 
+            this.lblSearchSurname.AutoSize = true;
+            this.lblSearchSurname.Location = new System.Drawing.Point(233, 7);
+            this.lblSearchSurname.Name = "lblSearchSurname";
+            this.lblSearchSurname.Size = new System.Drawing.Size(72, 20);
+            this.lblSearchSurname.TabIndex = 6;
+            this.lblSearchSurname.Text = "Презиме";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Име";
+            // 
             // btnClearEmployeeSearch
             // 
-            this.btnClearEmployeeSearch.Location = new System.Drawing.Point(631, 36);
+            this.btnClearEmployeeSearch.Location = new System.Drawing.Point(721, 108);
             this.btnClearEmployeeSearch.Name = "btnClearEmployeeSearch";
             this.btnClearEmployeeSearch.Size = new System.Drawing.Size(94, 29);
             this.btnClearEmployeeSearch.TabIndex = 5;
@@ -109,7 +156,7 @@ namespace TimeTable.UI
             // 
             // btnSearchEmployee
             // 
-            this.btnSearchEmployee.Location = new System.Drawing.Point(531, 36);
+            this.btnSearchEmployee.Location = new System.Drawing.Point(721, 39);
             this.btnSearchEmployee.Name = "btnSearchEmployee";
             this.btnSearchEmployee.Size = new System.Drawing.Size(94, 30);
             this.btnSearchEmployee.TabIndex = 4;
@@ -117,21 +164,26 @@ namespace TimeTable.UI
             this.btnSearchEmployee.UseVisualStyleBackColor = true;
             this.btnSearchEmployee.Click += new System.EventHandler(this.btnSearchEmployee_Click);
             // 
-            // cmbSearchEmployeeType
+            // txtEmployeeSerchLastName
             // 
-            this.cmbSearchEmployeeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSearchEmployeeType.FormattingEnabled = true;
-            this.cmbSearchEmployeeType.Location = new System.Drawing.Point(305, 37);
-            this.cmbSearchEmployeeType.Name = "cmbSearchEmployeeType";
-            this.cmbSearchEmployeeType.Size = new System.Drawing.Size(220, 28);
-            this.cmbSearchEmployeeType.TabIndex = 3;
+            this.txtEmployeeSerchLastName.Location = new System.Drawing.Point(462, 39);
+            this.txtEmployeeSerchLastName.Name = "txtEmployeeSerchLastName";
+            this.txtEmployeeSerchLastName.Size = new System.Drawing.Size(223, 27);
+            this.txtEmployeeSerchLastName.TabIndex = 2;
             // 
-            // txtSearchEmployee
+            // txtSearchEmployeeSurname
             // 
-            this.txtSearchEmployee.Location = new System.Drawing.Point(4, 38);
-            this.txtSearchEmployee.Name = "txtSearchEmployee";
-            this.txtSearchEmployee.Size = new System.Drawing.Size(295, 27);
-            this.txtSearchEmployee.TabIndex = 2;
+            this.txtSearchEmployeeSurname.Location = new System.Drawing.Point(233, 39);
+            this.txtSearchEmployeeSurname.Name = "txtSearchEmployeeSurname";
+            this.txtSearchEmployeeSurname.Size = new System.Drawing.Size(223, 27);
+            this.txtSearchEmployeeSurname.TabIndex = 2;
+            // 
+            // txtSearchEmployeeName
+            // 
+            this.txtSearchEmployeeName.Location = new System.Drawing.Point(4, 38);
+            this.txtSearchEmployeeName.Name = "txtSearchEmployeeName";
+            this.txtSearchEmployeeName.Size = new System.Drawing.Size(223, 27);
+            this.txtSearchEmployeeName.TabIndex = 2;
             // 
             // btnAddEmployee
             // 
@@ -160,11 +212,11 @@ namespace TimeTable.UI
             this.clmView,
             this.clmEdit,
             this.clmEmployeeTime});
-            this.dataGridEmployees.Location = new System.Drawing.Point(3, 96);
+            this.dataGridEmployees.Location = new System.Drawing.Point(3, 170);
             this.dataGridEmployees.Name = "dataGridEmployees";
             this.dataGridEmployees.RowHeadersVisible = false;
             this.dataGridEmployees.RowHeadersWidth = 51;
-            this.dataGridEmployees.Size = new System.Drawing.Size(1298, 469);
+            this.dataGridEmployees.Size = new System.Drawing.Size(1298, 395);
             this.dataGridEmployees.TabIndex = 0;
             this.dataGridEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployees_CellContentClick);
             // 
@@ -338,14 +390,6 @@ namespace TimeTable.UI
             this.dataGridProjects.TabIndex = 0;
             this.dataGridProjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProjects_CellContentClick);
             // 
-            // txtSearchProject
-            // 
-            this.txtSearchProject.Location = new System.Drawing.Point(4, 38);
-            this.txtSearchProject.Name = "txtSearchProject";
-            this.txtSearchProject.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSearchProject.Size = new System.Drawing.Size(295, 27);
-            this.txtSearchProject.TabIndex = 2;
-            // 
             // clmProjectId
             // 
             this.clmProjectId.DataPropertyName = "ProjectId";
@@ -412,6 +456,64 @@ namespace TimeTable.UI
             this.clmProjectEdit.Text = "   редакция   ";
             this.clmProjectEdit.UseColumnTextForButtonValue = true;
             // 
+            // txtSearchProject
+            // 
+            this.txtSearchProject.Location = new System.Drawing.Point(4, 38);
+            this.txtSearchProject.Name = "txtSearchProject";
+            this.txtSearchProject.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSearchProject.Size = new System.Drawing.Size(295, 27);
+            this.txtSearchProject.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "ЕГН";
+            // 
+            // txtSearchEmployeeEgn
+            // 
+            this.txtSearchEmployeeEgn.Location = new System.Drawing.Point(6, 107);
+            this.txtSearchEmployeeEgn.Name = "txtSearchEmployeeEgn";
+            this.txtSearchEmployeeEgn.Size = new System.Drawing.Size(221, 27);
+            this.txtSearchEmployeeEgn.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(233, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Позиция";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(462, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Дата на наемане";
+            // 
+            // cmbEmployeeSerachPosition
+            // 
+            this.cmbEmployeeSerachPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmployeeSerachPosition.FormattingEnabled = true;
+            this.cmbEmployeeSerachPosition.Location = new System.Drawing.Point(233, 106);
+            this.cmbEmployeeSerachPosition.Name = "cmbEmployeeSerachPosition";
+            this.cmbEmployeeSerachPosition.Size = new System.Drawing.Size(223, 28);
+            this.cmbEmployeeSerachPosition.TabIndex = 12;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(462, 107);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(223, 27);
+            this.dateTimePicker1.TabIndex = 13;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -443,8 +545,7 @@ namespace TimeTable.UI
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.Button btnAddProject;
         private System.Windows.Forms.Button btnSearchEmployee;
-        private System.Windows.Forms.ComboBox cmbSearchEmployeeType;
-        private System.Windows.Forms.TextBox txtSearchEmployee;
+        private System.Windows.Forms.TextBox txtSearchEmployeeName;
         private System.Windows.Forms.Button btnClearEmployeeSearch;
         private System.Windows.Forms.Button btnClearProjectSearch;
         private System.Windows.Forms.Button btnSearchProject;
@@ -470,5 +571,17 @@ namespace TimeTable.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStart;
         private System.Windows.Forms.DataGridViewButtonColumn clmProjectView;
         private System.Windows.Forms.DataGridViewButtonColumn clmProjectEdit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtSearchEmployeeSurname;
+        private System.Windows.Forms.Label lblSearchSurname;
+        private System.Windows.Forms.TextBox txtEmployeeSerchLastName;
+        private System.Windows.Forms.TextBox ee;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSearchEmployeeEgn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cmbEmployeeSerachPosition;
+        private System.Windows.Forms.Label label5;
     }
 }

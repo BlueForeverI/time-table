@@ -31,12 +31,6 @@ namespace TimeTable.UI
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridEmployeeHours = new System.Windows.Forms.DataGridView();
-            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dpDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,16 +42,23 @@ namespace TimeTable.UI
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddTime = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtEmployeeName = new System.Windows.Forms.TextBox();
-            this.txtEmployeeSurname = new System.Windows.Forms.TextBox();
-            this.txtEmployeeLastName = new System.Windows.Forms.TextBox();
-            this.txtEgn = new System.Windows.Forms.TextBox();
             this.txtPosition = new System.Windows.Forms.TextBox();
+            this.txtEgn = new System.Windows.Forms.TextBox();
+            this.txtEmployeeLastName = new System.Windows.Forms.TextBox();
+            this.txtEmployeeSurname = new System.Windows.Forms.TextBox();
+            this.txtEmployeeName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployeeHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npHours)).BeginInit();
@@ -83,9 +84,10 @@ namespace TimeTable.UI
             this.dataGridEmployeeHours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridEmployeeHours.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmDate,
+            this.clmMonth,
+            this.clmHours,
             this.clmProject,
             this.clmTask,
-            this.clmHours,
             this.clmEdit,
             this.clmDelete});
             this.dataGridEmployeeHours.Location = new System.Drawing.Point(7, 27);
@@ -97,56 +99,6 @@ namespace TimeTable.UI
             this.dataGridEmployeeHours.TabIndex = 0;
             this.dataGridEmployeeHours.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployeeHours_CellContentClick);
             this.dataGridEmployeeHours.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployeeHours_CellEndEdit);
-            // 
-            // clmDate
-            // 
-            this.clmDate.DataPropertyName = "Date";
-            this.clmDate.HeaderText = "Дата";
-            this.clmDate.MinimumWidth = 6;
-            this.clmDate.Name = "clmDate";
-            this.clmDate.ReadOnly = true;
-            // 
-            // clmProject
-            // 
-            this.clmProject.DataPropertyName = "Project";
-            this.clmProject.HeaderText = "Проект";
-            this.clmProject.MinimumWidth = 6;
-            this.clmProject.Name = "clmProject";
-            this.clmProject.ReadOnly = true;
-            // 
-            // clmTask
-            // 
-            this.clmTask.DataPropertyName = "Task";
-            this.clmTask.HeaderText = "Описание на дейността";
-            this.clmTask.MinimumWidth = 6;
-            this.clmTask.Name = "clmTask";
-            this.clmTask.ReadOnly = true;
-            // 
-            // clmHours
-            // 
-            this.clmHours.DataPropertyName = "Hours";
-            this.clmHours.HeaderText = "Часове";
-            this.clmHours.MinimumWidth = 6;
-            this.clmHours.Name = "clmHours";
-            this.clmHours.ReadOnly = true;
-            // 
-            // clmEdit
-            // 
-            this.clmEdit.HeaderText = " ";
-            this.clmEdit.MinimumWidth = 6;
-            this.clmEdit.Name = "clmEdit";
-            this.clmEdit.ReadOnly = true;
-            this.clmEdit.Text = "редактирай";
-            this.clmEdit.UseColumnTextForButtonValue = true;
-            // 
-            // clmDelete
-            // 
-            this.clmDelete.HeaderText = "  ";
-            this.clmDelete.MinimumWidth = 6;
-            this.clmDelete.Name = "clmDelete";
-            this.clmDelete.ReadOnly = true;
-            this.clmDelete.Text = "изтрий";
-            this.clmDelete.UseColumnTextForButtonValue = true;
             // 
             // label1
             // 
@@ -276,41 +228,45 @@ namespace TimeTable.UI
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Информация за служител";
             // 
-            // label5
+            // txtPosition
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 36);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Име";
+            this.txtPosition.Enabled = false;
+            this.txtPosition.Location = new System.Drawing.Point(136, 249);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(212, 27);
+            this.txtPosition.TabIndex = 5;
             // 
-            // label6
+            // txtEgn
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 91);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 20);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Презиме";
+            this.txtEgn.Enabled = false;
+            this.txtEgn.Location = new System.Drawing.Point(136, 198);
+            this.txtEgn.Name = "txtEgn";
+            this.txtEgn.Size = new System.Drawing.Size(212, 27);
+            this.txtEgn.TabIndex = 5;
             // 
-            // label7
+            // txtEmployeeLastName
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 145);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 20);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Фамилия";
+            this.txtEmployeeLastName.Enabled = false;
+            this.txtEmployeeLastName.Location = new System.Drawing.Point(136, 142);
+            this.txtEmployeeLastName.Name = "txtEmployeeLastName";
+            this.txtEmployeeLastName.Size = new System.Drawing.Size(212, 27);
+            this.txtEmployeeLastName.TabIndex = 5;
             // 
-            // label8
+            // txtEmployeeSurname
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 195);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 20);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "ЕГН";
+            this.txtEmployeeSurname.Enabled = false;
+            this.txtEmployeeSurname.Location = new System.Drawing.Point(136, 88);
+            this.txtEmployeeSurname.Name = "txtEmployeeSurname";
+            this.txtEmployeeSurname.Size = new System.Drawing.Size(212, 27);
+            this.txtEmployeeSurname.TabIndex = 5;
+            // 
+            // txtEmployeeName
+            // 
+            this.txtEmployeeName.Enabled = false;
+            this.txtEmployeeName.Location = new System.Drawing.Point(136, 33);
+            this.txtEmployeeName.Name = "txtEmployeeName";
+            this.txtEmployeeName.Size = new System.Drawing.Size(212, 27);
+            this.txtEmployeeName.TabIndex = 5;
             // 
             // label9
             // 
@@ -321,45 +277,99 @@ namespace TimeTable.UI
             this.label9.TabIndex = 4;
             this.label9.Text = "Позиция";
             // 
-            // txtEmployeeName
+            // label8
             // 
-            this.txtEmployeeName.Enabled = false;
-            this.txtEmployeeName.Location = new System.Drawing.Point(136, 33);
-            this.txtEmployeeName.Name = "txtEmployeeName";
-            this.txtEmployeeName.Size = new System.Drawing.Size(212, 27);
-            this.txtEmployeeName.TabIndex = 5;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 195);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 20);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "ЕГН";
             // 
-            // txtEmployeeSurname
+            // label7
             // 
-            this.txtEmployeeSurname.Enabled = false;
-            this.txtEmployeeSurname.Location = new System.Drawing.Point(136, 88);
-            this.txtEmployeeSurname.Name = "txtEmployeeSurname";
-            this.txtEmployeeSurname.Size = new System.Drawing.Size(212, 27);
-            this.txtEmployeeSurname.TabIndex = 5;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 145);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 20);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Фамилия";
             // 
-            // txtEmployeeLastName
+            // label6
             // 
-            this.txtEmployeeLastName.Enabled = false;
-            this.txtEmployeeLastName.Location = new System.Drawing.Point(136, 142);
-            this.txtEmployeeLastName.Name = "txtEmployeeLastName";
-            this.txtEmployeeLastName.Size = new System.Drawing.Size(212, 27);
-            this.txtEmployeeLastName.TabIndex = 5;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 91);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Презиме";
             // 
-            // txtEgn
+            // label5
             // 
-            this.txtEgn.Enabled = false;
-            this.txtEgn.Location = new System.Drawing.Point(136, 198);
-            this.txtEgn.Name = "txtEgn";
-            this.txtEgn.Size = new System.Drawing.Size(212, 27);
-            this.txtEgn.TabIndex = 5;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Име";
             // 
-            // txtPosition
+            // clmDate
             // 
-            this.txtPosition.Enabled = false;
-            this.txtPosition.Location = new System.Drawing.Point(136, 249);
-            this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(212, 27);
-            this.txtPosition.TabIndex = 5;
+            this.clmDate.DataPropertyName = "DateYear";
+            this.clmDate.HeaderText = "Година";
+            this.clmDate.MinimumWidth = 6;
+            this.clmDate.Name = "clmDate";
+            this.clmDate.ReadOnly = true;
+            // 
+            // clmMonth
+            // 
+            this.clmMonth.DataPropertyName = "DateMonth";
+            this.clmMonth.HeaderText = "Месец";
+            this.clmMonth.MinimumWidth = 6;
+            this.clmMonth.Name = "clmMonth";
+            this.clmMonth.ReadOnly = true;
+            // 
+            // clmHours
+            // 
+            this.clmHours.DataPropertyName = "Hours";
+            this.clmHours.HeaderText = "Часове";
+            this.clmHours.MinimumWidth = 6;
+            this.clmHours.Name = "clmHours";
+            this.clmHours.ReadOnly = true;
+            // 
+            // clmProject
+            // 
+            this.clmProject.DataPropertyName = "Project";
+            this.clmProject.HeaderText = "Проект";
+            this.clmProject.MinimumWidth = 6;
+            this.clmProject.Name = "clmProject";
+            this.clmProject.ReadOnly = true;
+            // 
+            // clmTask
+            // 
+            this.clmTask.DataPropertyName = "Task";
+            this.clmTask.HeaderText = "Описание на дейността";
+            this.clmTask.MinimumWidth = 6;
+            this.clmTask.Name = "clmTask";
+            this.clmTask.ReadOnly = true;
+            // 
+            // clmEdit
+            // 
+            this.clmEdit.HeaderText = " ";
+            this.clmEdit.MinimumWidth = 6;
+            this.clmEdit.Name = "clmEdit";
+            this.clmEdit.ReadOnly = true;
+            this.clmEdit.Text = "редактирай";
+            this.clmEdit.UseColumnTextForButtonValue = true;
+            // 
+            // clmDelete
+            // 
+            this.clmDelete.HeaderText = "  ";
+            this.clmDelete.MinimumWidth = 6;
+            this.clmDelete.Name = "clmDelete";
+            this.clmDelete.ReadOnly = true;
+            this.clmDelete.Text = "изтрий";
+            this.clmDelete.UseColumnTextForButtonValue = true;
             // 
             // EmployeeTime
             // 
@@ -399,12 +409,6 @@ namespace TimeTable.UI
         private System.Windows.Forms.NumericUpDown npHours;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnAddTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTask;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmHours;
-        private System.Windows.Forms.DataGridViewButtonColumn clmEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn clmDelete;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -416,5 +420,12 @@ namespace TimeTable.UI
         private System.Windows.Forms.TextBox txtEmployeeSurname;
         private System.Windows.Forms.TextBox txtEmployeeName;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmMonth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmHours;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTask;
+        private System.Windows.Forms.DataGridViewButtonColumn clmEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn clmDelete;
     }
 }

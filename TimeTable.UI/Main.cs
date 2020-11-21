@@ -27,8 +27,7 @@ namespace TimeTable.UI
                 dataGridEmployees.AutoGenerateColumns = false;
                 dataGridProjects.AutoGenerateColumns = false;
 
-                cmbSearchEmployeeType.Items.AddRange(new string[] { "ЕГН", "Име", "Презиме", "Фамилия", "Длъжност", "Дата на постъпване" });
-                cmbSearchEmployeeType.Text = "ЕГН";
+                cmbEmployeeSerachPosition.Items.AddRange(new string[] { "Стажант", "Служител", "Мениджър" });
 
                 cmbSearchProjectType.Items.AddRange(new string[] { "Име", "Начало", "Край", "Описание", "Статус" });
                 cmbSearchProjectType.Text = "Име";
@@ -82,36 +81,53 @@ namespace TimeTable.UI
 
         private void btnSearchEmployee_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtSearchEmployee.Text))
+            var name = txtSearchEmployeeName.Text;
+            var surname = txtSearchEmployeeSurname.Text;
+            var lastName = txtEmployeeSerchLastName.Text;
+            var query = _allEmployees.AsQueryable();
+            if (!string.IsNullOrEmpty(name))
             {
-                var query = txtSearchEmployee.Text;
-                switch(cmbSearchEmployeeType.Text)
-                {
-                    case "ЕГН":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Egn.Contains(query)).ToList();
-                        break;
-                    case "Име":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Name.Contains(query)).ToList();
-                        break;
-                    case "Презиме":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Surname.Contains(query)).ToList();
-                        break;
-                    case "Фамилия":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Lastname.Contains(query)).ToList();
-                        break;
-                    case "Длъжност":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Position.Contains(query)).ToList();
-                        break;
-                    case "Дата на постъпване":
-                        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.HireDate.ToString().Contains(query)).ToList();
-                        break;
-                }
+                query = query.Where(e => e.Name.Contains(name));
             }
+
+            if (!string.IsNullOrEmpty(surname))
+            {
+                query = query.Where(e => e.Surname.Contains(surname));
+            }
+
+            if (!string.IsNullOrEmpty(lastName))
+            {
+                query = query.Where(e => e.Lastname.Contains(lastName));
+            }
+
+            dataGridEmployees.DataSource = query.ToList();
+            //switch(cmbSearchEmployeeType.Text)
+            //{
+            //    case "ЕГН":
+            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Egn.Contains(query)).ToList();
+            //        break;
+            //    case "Име":
+            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Name.Contains(query)).ToList();
+            //        break;
+            //    case "Презиме":
+            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Surname.Contains(query)).ToList();
+            //        break;
+            //    case "Фамилия":
+            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Lastname.Contains(query)).ToList();
+            //        break;
+            //    case "Длъжност":
+            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.Position.Contains(query)).ToList();
+            //        break;
+            //    case "Дата на постъпване":
+            //        dataGridEmployees.DataSource = _allEmployees.Where(emp => emp.HireDate.ToString().Contains(query)).ToList();
+            //        break;
         }
 
         private void btnClearEmployeeSearch_Click(object sender, EventArgs e)
         {
-            txtSearchEmployee.Text = "";
+            txtSearchEmployeeName.Text = "";
+            txtSearchEmployeeSurname.Text = "";
+            txtEmployeeSerchLastName.Text = "";
             dataGridEmployees.DataSource = _allEmployees;
         }
 

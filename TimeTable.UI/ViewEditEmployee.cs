@@ -15,7 +15,7 @@ namespace TimeTable.UI
         private List<EmployeeProjectTimeViewModel> _projectHours;
         private List<EmployeeMonthTimeViewModel> _employeeMonthHours;
 
-        public ViewEditEmployee(Employee employee)
+        public ViewEditEmployee(Employee employee, bool readOnly = false)
         {
             InitializeComponent();
             cmbPosition.Items.AddRange(new string[] { "Стажант", "Служител", "Мениджър" });
@@ -36,6 +36,18 @@ namespace TimeTable.UI
             _employeeMonthHours = _employeeService.GetEmployeeMonthHours(employee.EmployeeId);
             dataGridEmployeeMonth.DataSource = _employeeMonthHours;
             dataGridEmployeeMonth.AutoGenerateColumns = false;
+
+            if (readOnly)
+            {
+                txtEgn.Enabled = false;
+                txtFamilyName.Enabled = false;
+                txtName.Enabled = false;
+                txtSurname.Enabled = false;
+                cmbPosition.Enabled = false;
+                dpHireDate.Enabled = false;
+                btnSave.Enabled = false;
+                this.Text = "Преглед на служител";
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

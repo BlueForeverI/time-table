@@ -319,7 +319,7 @@ namespace TimeTable.UI
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewEditEmployee";
-            this.Text = "Преглед/редакция на служител";
+            this.Text = "Редакция на служител";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -16,7 +16,7 @@ namespace TimeTable.UI
         private ProjectMonthService _projectMonthService;
         private List<ProjectMonthViewModel> _projectMonths;
 
-        public ViewEditProject(Project project)
+        public ViewEditProject(Project project, bool readOnly = true)
         {
             InitializeComponent();
             _projectService = new ProjectService();
@@ -32,7 +32,7 @@ namespace TimeTable.UI
             dpEnd.Value = project.End;
             npMaxHours.Value = (decimal) project.MaxHours;
 
-            if (project.Status == "C")
+            if (project.Status == "C" || readOnly)
             {
                 txtProjectName.ReadOnly = true;
                 txtProjectName.Enabled = false;
@@ -42,9 +42,15 @@ namespace TimeTable.UI
                 dpEnd.Enabled = false;
                 npMaxHours.ReadOnly = true;
                 npMaxHours.Enabled = false;
-                cmbStatus.Text = "Приключен";
+                if (project.Status == "C")
+                { 
+                    cmbStatus.Text = "Приключен";
+                }
                 cmbStatus.Enabled = false;
                 btnSave.Enabled = false;
+                npPmMonth.Enabled = false;
+                npPmYear.Enabled = false;
+                btnAddProjectMonth.Enabled = false;
             }
 
             ReloadProjectMonths();

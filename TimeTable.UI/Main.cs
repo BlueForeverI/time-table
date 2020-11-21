@@ -120,9 +120,9 @@ namespace TimeTable.UI
             if (dataGridEmployees.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
                 Employee employee = _allEmployees[e.RowIndex];
-                if (e.ColumnIndex == 7)
+                if (e.ColumnIndex == 7 || e.ColumnIndex == 8)
                 {
-                    if (new ViewEditEmployee(employee).ShowDialog() == DialogResult.OK)
+                    if (new ViewEditEmployee(employee, e.ColumnIndex == 7).ShowDialog() == DialogResult.OK)
                     {
                         ReloadEmployees();
                     }
@@ -171,7 +171,7 @@ namespace TimeTable.UI
             if (dataGridProjects.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
                 Project project = _allProjects[e.RowIndex];
-                if (new ViewEditProject(project).ShowDialog() == DialogResult.OK)
+                if (new ViewEditProject(project, e.ColumnIndex == 6).ShowDialog() == DialogResult.OK)
                 {
                     ReloadProjects();
                 }

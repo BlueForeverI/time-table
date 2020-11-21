@@ -47,10 +47,22 @@ namespace TimeTable.UI
             this.npHours = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddTime = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtEmployeeName = new System.Windows.Forms.TextBox();
+            this.txtEmployeeSurname = new System.Windows.Forms.TextBox();
+            this.txtEmployeeLastName = new System.Windows.Forms.TextBox();
+            this.txtEgn = new System.Windows.Forms.TextBox();
+            this.txtPosition = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployeeHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npHours)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -245,11 +257,116 @@ namespace TimeTable.UI
             this.btnAddTime.UseVisualStyleBackColor = true;
             this.btnAddTime.Click += new System.EventHandler(this.btnAddTime_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtPosition);
+            this.groupBox3.Controls.Add(this.txtEgn);
+            this.groupBox3.Controls.Add(this.txtEmployeeLastName);
+            this.groupBox3.Controls.Add(this.txtEmployeeSurname);
+            this.groupBox3.Controls.Add(this.txtEmployeeName);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Location = new System.Drawing.Point(405, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(739, 295);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Информация за служител";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Име";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 91);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Презиме";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 145);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 20);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Фамилия";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 195);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 20);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "ЕГН";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 256);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 20);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Позиция";
+            // 
+            // txtEmployeeName
+            // 
+            this.txtEmployeeName.Enabled = false;
+            this.txtEmployeeName.Location = new System.Drawing.Point(136, 33);
+            this.txtEmployeeName.Name = "txtEmployeeName";
+            this.txtEmployeeName.Size = new System.Drawing.Size(212, 27);
+            this.txtEmployeeName.TabIndex = 5;
+            // 
+            // txtEmployeeSurname
+            // 
+            this.txtEmployeeSurname.Enabled = false;
+            this.txtEmployeeSurname.Location = new System.Drawing.Point(136, 88);
+            this.txtEmployeeSurname.Name = "txtEmployeeSurname";
+            this.txtEmployeeSurname.Size = new System.Drawing.Size(212, 27);
+            this.txtEmployeeSurname.TabIndex = 5;
+            // 
+            // txtEmployeeLastName
+            // 
+            this.txtEmployeeLastName.Enabled = false;
+            this.txtEmployeeLastName.Location = new System.Drawing.Point(136, 142);
+            this.txtEmployeeLastName.Name = "txtEmployeeLastName";
+            this.txtEmployeeLastName.Size = new System.Drawing.Size(212, 27);
+            this.txtEmployeeLastName.TabIndex = 5;
+            // 
+            // txtEgn
+            // 
+            this.txtEgn.Enabled = false;
+            this.txtEgn.Location = new System.Drawing.Point(136, 198);
+            this.txtEgn.Name = "txtEgn";
+            this.txtEgn.Size = new System.Drawing.Size(212, 27);
+            this.txtEgn.TabIndex = 5;
+            // 
+            // txtPosition
+            // 
+            this.txtPosition.Enabled = false;
+            this.txtPosition.Location = new System.Drawing.Point(136, 249);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(212, 27);
+            this.txtPosition.TabIndex = 5;
+            // 
             // EmployeeTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1156, 667);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -262,6 +379,8 @@ namespace TimeTable.UI
             ((System.ComponentModel.ISupportInitialize)(this.npHours)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -286,5 +405,16 @@ namespace TimeTable.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn clmHours;
         private System.Windows.Forms.DataGridViewButtonColumn clmEdit;
         private System.Windows.Forms.DataGridViewButtonColumn clmDelete;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtPosition;
+        private System.Windows.Forms.TextBox txtEgn;
+        private System.Windows.Forms.TextBox txtEmployeeLastName;
+        private System.Windows.Forms.TextBox txtEmployeeSurname;
+        private System.Windows.Forms.TextBox txtEmployeeName;
+        private System.Windows.Forms.Label label9;
     }
 }

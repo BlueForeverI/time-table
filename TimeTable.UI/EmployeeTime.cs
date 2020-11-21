@@ -33,6 +33,13 @@ namespace TimeTable.UI
             _openProjects = _projectService.GetAll().Where(prj => prj.Status == "O").ToList();
             cmbProject.DataSource = _openProjects;
             cmbProject.DisplayMember = "Name";
+
+            var employee = _employeeService.GetById(employeeId);
+            txtEmployeeName.Text = employee.Name;
+            txtEmployeeSurname.Text = employee.Surname;
+            txtEmployeeLastName.Text = employee.Lastname;
+            txtEgn.Text = employee.Egn;
+            txtPosition.Text = employee.Position;
         }
 
         private void ReloadProjectHours()

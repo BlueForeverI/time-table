@@ -44,7 +44,8 @@ namespace TimeTable.UI
             this.clmFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmHireData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmActions = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmView = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmEmployeeTime = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnClearProjectSearch = new System.Windows.Forms.Button();
@@ -53,14 +54,15 @@ namespace TimeTable.UI
             this.txtSearchProjectt = new System.Windows.Forms.TextBox();
             this.btnAddProject = new System.Windows.Forms.Button();
             this.dataGridProjects = new System.Windows.Forms.DataGridView();
+            this.txtSearchProject = new System.Windows.Forms.TextBox();
             this.clmProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmProjectStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmProjectActions = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtSearchProject = new System.Windows.Forms.TextBox();
+            this.clmProjectView = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmProjectEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
@@ -155,7 +157,8 @@ namespace TimeTable.UI
             this.clmFamilyName,
             this.clmPosition,
             this.clmHireData,
-            this.clmActions,
+            this.clmView,
+            this.clmEdit,
             this.clmEmployeeTime});
             this.dataGridEmployees.Location = new System.Drawing.Point(3, 96);
             this.dataGridEmployees.Name = "dataGridEmployees";
@@ -221,14 +224,23 @@ namespace TimeTable.UI
             this.clmHireData.Name = "clmHireData";
             this.clmHireData.ReadOnly = true;
             // 
-            // clmActions
+            // clmView
             // 
-            this.clmActions.HeaderText = "";
-            this.clmActions.MinimumWidth = 6;
-            this.clmActions.Name = "clmActions";
-            this.clmActions.ReadOnly = true;
-            this.clmActions.Text = "   преглед/редакция   ";
-            this.clmActions.UseColumnTextForButtonValue = true;
+            this.clmView.HeaderText = "";
+            this.clmView.MinimumWidth = 6;
+            this.clmView.Name = "clmView";
+            this.clmView.ReadOnly = true;
+            this.clmView.Text = "   преглед   ";
+            this.clmView.UseColumnTextForButtonValue = true;
+            // 
+            // clmEdit
+            // 
+            this.clmEdit.HeaderText = "";
+            this.clmEdit.MinimumWidth = 6;
+            this.clmEdit.Name = "clmEdit";
+            this.clmEdit.ReadOnly = true;
+            this.clmEdit.Text = "  редакция   ";
+            this.clmEdit.UseColumnTextForButtonValue = true;
             // 
             // clmEmployeeTime
             // 
@@ -315,7 +327,8 @@ namespace TimeTable.UI
             this.clmProjectEnd,
             this.clmProjectDescription,
             this.clmProjectStatus,
-            this.clmProjectActions});
+            this.clmProjectView,
+            this.clmProjectEdit});
             this.dataGridProjects.Location = new System.Drawing.Point(3, 96);
             this.dataGridProjects.Name = "dataGridProjects";
             this.dataGridProjects.ReadOnly = true;
@@ -324,6 +337,14 @@ namespace TimeTable.UI
             this.dataGridProjects.Size = new System.Drawing.Size(1298, 469);
             this.dataGridProjects.TabIndex = 0;
             this.dataGridProjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProjects_CellContentClick);
+            // 
+            // txtSearchProject
+            // 
+            this.txtSearchProject.Location = new System.Drawing.Point(4, 38);
+            this.txtSearchProject.Name = "txtSearchProject";
+            this.txtSearchProject.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSearchProject.Size = new System.Drawing.Size(295, 27);
+            this.txtSearchProject.TabIndex = 2;
             // 
             // clmProjectId
             // 
@@ -373,22 +394,23 @@ namespace TimeTable.UI
             this.clmProjectStatus.Name = "clmProjectStatus";
             this.clmProjectStatus.ReadOnly = true;
             // 
-            // clmProjectActions
+            // clmProjectView
             // 
-            this.clmProjectActions.HeaderText = " ";
-            this.clmProjectActions.MinimumWidth = 6;
-            this.clmProjectActions.Name = "clmProjectActions";
-            this.clmProjectActions.ReadOnly = true;
-            this.clmProjectActions.Text = "   преглед/редакция    ";
-            this.clmProjectActions.UseColumnTextForButtonValue = true;
+            this.clmProjectView.HeaderText = " ";
+            this.clmProjectView.MinimumWidth = 6;
+            this.clmProjectView.Name = "clmProjectView";
+            this.clmProjectView.ReadOnly = true;
+            this.clmProjectView.Text = "   преглед    ";
+            this.clmProjectView.UseColumnTextForButtonValue = true;
             // 
-            // txtSearchProject
+            // clmProjectEdit
             // 
-            this.txtSearchProject.Location = new System.Drawing.Point(4, 38);
-            this.txtSearchProject.Name = "txtSearchProject";
-            this.txtSearchProject.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSearchProject.Size = new System.Drawing.Size(295, 27);
-            this.txtSearchProject.TabIndex = 2;
+            this.clmProjectEdit.HeaderText = "";
+            this.clmProjectEdit.MinimumWidth = 6;
+            this.clmProjectEdit.Name = "clmProjectEdit";
+            this.clmProjectEdit.ReadOnly = true;
+            this.clmProjectEdit.Text = "   редакция   ";
+            this.clmProjectEdit.UseColumnTextForButtonValue = true;
             // 
             // Main
             // 
@@ -429,6 +451,10 @@ namespace TimeTable.UI
         private System.Windows.Forms.ComboBox cmbSearchProjectType;
         private System.Windows.Forms.TextBox txtSearchProjectt;
         private System.Windows.Forms.TextBox txtSearchProject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectEnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn clmProjectActions;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEmployeeId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEgn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
@@ -436,14 +462,13 @@ namespace TimeTable.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFamilyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmHireData;
-        private System.Windows.Forms.DataGridViewButtonColumn clmActions;
+        private System.Windows.Forms.DataGridViewButtonColumn clmView;
+        private System.Windows.Forms.DataGridViewButtonColumn clmEdit;
         private System.Windows.Forms.DataGridViewButtonColumn clmEmployeeTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectname;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectEnd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProjectStatus;
-        private System.Windows.Forms.DataGridViewButtonColumn clmProjectActions;
+        private System.Windows.Forms.DataGridViewButtonColumn clmProjectView;
+        private System.Windows.Forms.DataGridViewButtonColumn clmProjectEdit;
     }
 }
